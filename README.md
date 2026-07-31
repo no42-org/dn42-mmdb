@@ -36,7 +36,7 @@ git -C /path/to/registry pull
 
 ## Example: Riptide
 
-Add the file as an extra GeoIP database, no other configuration needed:
+Add the file as an extra GeoIP database in [Riptide](https://riptide.space/docs/), no other configuration needed:
 
 ```yaml
 geoip:
