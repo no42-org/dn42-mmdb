@@ -1,0 +1,9 @@
+# build artifacts
+*.mmdb
+.venv/
+
+# AI tools
+_bmad-output/
+_bmad/
+openspec/
+.claude/
