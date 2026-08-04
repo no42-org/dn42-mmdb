@@ -1,5 +1,9 @@
 # dn42-mmdb
 
+[![CI Status](https://github.com/no42-org/dn42-mmdb/actions/workflows/release.yml/badge.svg)](https://github.com/no42-org/dn42-mmdb/actions/workflows/release.yml)
+[![Latest Release](https://img.shields.io/github/v/release/no42-org/dn42-mmdb)](https://github.com/no42-org/dn42-mmdb/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Builds a GeoLite2-ASN-compatible MaxMind database (`dn42-asn.mmdb`) from a [dn42 registry](https://git.dn42.dev/dn42/registry) checkout.
 It maps every registered prefix (`data/route/`, `data/route6/`) to its origin ASN and the ASN's `as-name` (`data/aut-num/`), so flow collectors and anything else speaking MaxMind MMDB can enrich DN42 traffic the same way they enrich public internet traffic with GeoLite2-ASN.
 
@@ -56,6 +60,12 @@ geoip:
       - /usr/share/GeoIP/GeoLite2-City.mmdb
       - /usr/share/GeoIP/dn42-asn.mmdb
 ```
+
+## Documentation
+
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Release Process](RELEASING.md)
+- [Security Policy](SECURITY.md)
 
 ## License
 
