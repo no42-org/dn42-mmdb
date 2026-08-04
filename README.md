@@ -44,6 +44,51 @@ To run an immediate update manually:
 sudo systemctl start dn42-mmdb-update.service
 ```
 
+## Nix & NixOS Support
+
+This repository includes a `flake.nix` for Nix and NixOS users:
+
+### Development Shell
+
+Drop into a pre-configured development environment:
+
+```sh
+nix develop
+```
+
+### Build & Run via Nix
+
+Build or run the database generator directly:
+
+```sh
+nix build
+nix run . -- --registry /path/to/registry -o dn42-asn.mmdb
+```
+
+### NixOS Module
+
+Import the module in your NixOS configuration to enable automated weekly updates:
+
+```nix
+{
+  inputs.dn42-mmdb.url = "github:no42-org/dn42-mmdb";
+
+  outputs = { self, nixpkgs, dn42-mmdb, ... }: {
+    nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
+      modules = [
+        dn42-mmdb.nixosModules.default
+        {
+          services.dn42-mmdb = {
+            enable = true;
+            autoUpdate.enable = true;
+          };
+        }
+      ];
+    };
+  };
+}
+```
+
 ## Usage
 
 You need a dn42 registry checkout (requires dn42 access, or use the [public mirror](https://git.dn42.dev/dn42/registry)):
