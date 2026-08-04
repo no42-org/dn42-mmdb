@@ -9,6 +9,17 @@ All registry sources are included (DN42, ICVPN, NEONETWORK, CRXN, CHAOSVPN).
 When a prefix has multiple origins, the numerically lowest ASN wins and a warning is printed.
 Overlapping prefixes resolve by longest-prefix match, like BGP.
 
+## Weekly Releases
+
+Pre-built releases are automatically built and published every week driven by GitHub Actions.
+You can download the latest database and SHA-256 checksum from GitHub Releases:
+
+```sh
+curl -LO https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb
+curl -LO https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb.sha256
+sha256sum -c dn42-asn.mmdb.sha256
+```
+
 ## Usage
 
 You need a dn42 registry checkout (requires dn42 access, or use the [public mirror](https://git.dn42.dev/dn42/registry)):
