@@ -1,0 +1,22 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+[Unit]
+Description=Fetch latest DN42 MaxMind MMDB database
+Documentation=https://github.com/no42-org/dn42-mmdb
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+StateDirectory=dn42
+ExecStart=/usr/bin/bash -c '\
+  set -euo pipefail; \
+  TMP_DIR=$$(mktemp -d); \
+  trap "rm -rf $${TMP_DIR}" EXIT; \
+  curl -sSL -o "$${TMP_DIR}/dn42-asn.mmdb" https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb; \
+  curl -sSL -o "$${TMP_DIR}/dn42-asn.mmdb.sha256" https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb.sha256; \
+  (cd "$${TMP_DIR}" && sha256sum -c dn42-asn.mmdb.sha256); \
+  mv "$${TMP_DIR}/dn42-asn.mmdb" /var/lib/dn42/dn42-asn.mmdb; \
+  chmod 0644 /var/lib/dn42/dn42-asn.mmdb \
+'

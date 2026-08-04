@@ -1,0 +1,14 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+[Unit]
+Description=Weekly fetch of latest DN42 MaxMind MMDB database
+Documentation=https://github.com/no42-org/dn42-mmdb
+
+[Timer]
+OnCalendar=Mon *-*-* 04:00:00 UTC
+RandomizedDelaySec=1800
+Persistent=true
+
+[Install]
+WantedBy=timers.target

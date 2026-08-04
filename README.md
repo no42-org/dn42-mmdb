@@ -24,6 +24,26 @@ curl -LO https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn
 sha256sum -c dn42-asn.mmdb.sha256
 ```
 
+## Automated Weekly Updates via Systemd
+
+A Systemd service and timer unit are included in `systemd/` to fetch and verify the latest release weekly:
+
+```sh
+# Copy systemd unit files
+sudo cp systemd/dn42-mmdb-update.service /etc/systemd/system/
+sudo cp systemd/dn42-mmdb-update.timer /etc/systemd/system/
+
+# Enable and start weekly timer (runs Mondays at 04:00 UTC)
+sudo systemctl daemon-reload
+sudo systemctl enable --now dn42-mmdb-update.timer
+```
+
+To run an immediate update manually:
+
+```sh
+sudo systemctl start dn42-mmdb-update.service
+```
+
 ## Usage
 
 You need a dn42 registry checkout (requires dn42 access, or use the [public mirror](https://git.dn42.dev/dn42/registry)):
