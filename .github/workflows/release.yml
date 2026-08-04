@@ -1,0 +1,53 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+name: Weekly MMDB Release
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and Release MMDB
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@0b9264172d297f9d85790b9b3fa1eb5ec1421c60  # v5.4.0
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify build environment
+        run: make verify
+
+      - name: Shallow clone DN42 registry
+        run: git clone --depth 1 https://git.dn42.dev/dn42/registry.git registry
+
+      - name: Build MMDB database
+        run: make build REGISTRY=registry OUTPUT=dn42-asn.mmdb
+
+      - name: Generate SHA-256 checksum
+        run: make checksum OUTPUT=dn42-asn.mmdb
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="v$(date -u +%Y.%m.%d)"
+          gh release create "$TAG" dn42-asn.mmdb dn42-asn.mmdb.sha256 \
+            --title "DN42 MMDB $TAG" \
+            --notes "Weekly automated build of dn42-asn.mmdb from git.dn42.dev/dn42/registry." \
+            --clobber

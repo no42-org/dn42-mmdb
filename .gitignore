@@ -1,9 +1,13 @@
 # build artifacts
 *.mmdb
+*.sha256
 .venv/
+__pycache__/
+registry/
 
 # AI tools
 _bmad-output/
 _bmad/
 openspec/
 .claude/
+.agent/
