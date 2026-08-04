@@ -15,6 +15,27 @@
         pkgs = nixpkgs.legacyPackages.${system};
         pythonPackages = pkgs.python3Packages;
 
+        mmdb-writer = pythonPackages.buildPythonPackage rec {
+          pname = "mmdb_writer";
+          version = "0.2.7";
+          format = "pyproject";
+
+          src = pythonPackages.fetchPypi {
+            inherit pname version;
+            hash = "sha256-sBJ5eytj1rjf4hz6k5E5XntbkuFmglvTrUck9aZwIVo=";
+          };
+
+          nativeBuildInputs = [
+            pythonPackages.flit-core
+          ];
+
+          propagatedBuildInputs = [
+            pythonPackages.netaddr
+          ];
+
+          doCheck = false;
+        };
+
         dn42-mmdb-pkg = pythonPackages.buildPythonApplication {
           pname = "dn42-mmdb";
           version = "0.1.0";
@@ -23,11 +44,15 @@
           format = "other";
 
           propagatedBuildInputs = [
-            pythonPackages.maxminddb-writer
+            mmdb-writer
             pythonPackages.netaddr
           ];
 
           nativeBuildInputs = [ pkgs.makeWrapper ];
+
+          buildPhase = ''
+            python -m py_compile build_asn_mmdb.py
+          '';
 
           installPhase = ''
             mkdir -p $out/bin $out/share/dn42-mmdb
@@ -50,7 +75,7 @@
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.python3
-            pythonPackages.maxminddb-writer
+            mmdb-writer
             pythonPackages.netaddr
             pkgs.actionlint
             pkgs.git
