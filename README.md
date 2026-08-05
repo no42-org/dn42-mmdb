@@ -91,7 +91,7 @@ Import the module in your NixOS configuration to enable automated weekly updates
 
 ## Usage
 
-You need a dn42 registry checkout (requires dn42 access, or use the [public mirror](https://git.dn42.dev/dn42/registry)):
+You need a [dn42 registry](https://git.dn42.dev/dn42/registry) git checkout which requires an account:
 
 ```sh
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
@@ -116,7 +116,7 @@ git -C /path/to/registry pull
 
 ## Example: Riptide
 
-Add the file as an extra GeoIP database in [Riptide](https://riptide.space/docs/), no other configuration needed:
+Add the file as an extra GeoIP database in [Riptide](https://riptide.space/), no other configuration needed:
 
 ```yaml
 geoip:
