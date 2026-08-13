@@ -42,6 +42,9 @@ jobs:
       - name: Lint GitHub Actions workflows
         uses: rhysd/actionlint@914e7df21a07ef503a81201c76d2b11c789d3fca  # v1.7.12
 
+      - name: Security audit GitHub Actions workflows
+        uses: zizmorcore/zizmor-action@3dc1ecc9bcb9e94e9b2c709687979e1298497054  # v0.6.2
+
   dependency-review:
     name: Dependency Review
     if: github.event_name == 'pull_request'

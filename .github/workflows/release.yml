@@ -13,12 +13,23 @@ on:
         required: false
         default: 'https://git.dn42.dev/dn42/registry.git'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
 jobs:
+  gates:
+    name: Quality Gates
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
   release:
     name: Build and Release MMDB
+    needs: gates
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
