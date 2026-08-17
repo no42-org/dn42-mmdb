@@ -10,8 +10,10 @@ on:
     branches: [ main ]
   workflow_call:
 
+# The group must never equal a caller's group: inside a workflow_call,
+# github.workflow resolves to the caller's name, and a shared group deadlocks.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ci-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 permissions:
