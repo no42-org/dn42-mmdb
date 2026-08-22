@@ -9,9 +9,12 @@ on:
   workflow_dispatch:
     inputs:
       registry_url:
-        description: 'DN42 registry git repository URL'
+        # No default: the inputs context is populated with declared defaults on
+        # workflow_dispatch and empty on schedule, so a default here would always
+        # win the || chain below and silently mask DN42_REGISTRY_URL on manual
+        # runs. The trailing literal in that chain supplies the default instead.
+        description: 'DN42 registry git repository URL (overrides DN42_REGISTRY_URL)'
         required: false
-        default: 'https://git.dn42.dev/dn42/registry.git'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -58,21 +61,10 @@ jobs:
         run: make verify
 
       - name: Shallow clone DN42 registry
-        env:
-          GIT_TERMINAL_PROMPT: '0'
-          REGISTRY_URL: ${{ inputs.registry_url || secrets.DN42_REGISTRY_URL || vars.DN42_REGISTRY_URL || 'https://git.dn42.dev/dn42/registry.git' }}
-          REGISTRY_TOKEN: ${{ secrets.DN42_REGISTRY_TOKEN }}
-        run: |
-          if [ -n "$REGISTRY_TOKEN" ]; then
-            AUTH_URL="${REGISTRY_URL/https:\/\//https://${REGISTRY_TOKEN}@}"
-            git -c http.extraheader="" clone --depth 1 "$AUTH_URL" registry
-          else
-            if ! git -c http.extraheader="" clone --depth 1 "$REGISTRY_URL" registry; then
-              echo "Error: Failed to clone DN42 registry from $REGISTRY_URL" >&2
-              echo "If accessing git.dn42.dev, ensure DN42_REGISTRY_TOKEN secret is configured." >&2
-              exit 1
-            fi
-          fi
+        uses: ./.github/actions/clone-registry
+        with:
+          registry-url: ${{ inputs.registry_url || secrets.DN42_REGISTRY_URL || vars.DN42_REGISTRY_URL || 'https://git.dn42.dev/dn42/registry.git' }}
+          registry-token: ${{ secrets.DN42_REGISTRY_TOKEN }}
 
       # One invocation: the database targets are phony, so a separate
       # `make checksum` run would rebuild every database before hashing it.
@@ -148,20 +140,10 @@ jobs:
           python-version: '3.x'
 
       - name: Shallow clone DN42 registry
-        env:
-          GIT_TERMINAL_PROMPT: '0'
-          REGISTRY_URL: ${{ inputs.registry_url || secrets.DN42_REGISTRY_URL || vars.DN42_REGISTRY_URL || 'https://git.dn42.dev/dn42/registry.git' }}
-          REGISTRY_TOKEN: ${{ secrets.DN42_REGISTRY_TOKEN }}
-        run: |
-          if [ -n "$REGISTRY_TOKEN" ]; then
-            AUTH_URL="${REGISTRY_URL/https:\/\//https://${REGISTRY_TOKEN}@}"
-            git -c http.extraheader="" clone --depth 1 "$AUTH_URL" registry
-          else
-            if ! git -c http.extraheader="" clone --depth 1 "$REGISTRY_URL" registry; then
-              echo "Error: Failed to clone DN42 registry from $REGISTRY_URL" >&2
-              exit 1
-            fi
-          fi
+        uses: ./.github/actions/clone-registry
+        with:
+          registry-url: ${{ inputs.registry_url || secrets.DN42_REGISTRY_URL || vars.DN42_REGISTRY_URL || 'https://git.dn42.dev/dn42/registry.git' }}
+          registry-token: ${{ secrets.DN42_REGISTRY_TOKEN }}
 
       # Feeds on *.dn42 hostnames are unreachable from GitHub-hosted runners.
       # The tool reports them as unreachable and keeps their existing rows, so
