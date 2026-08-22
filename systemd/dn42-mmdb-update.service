@@ -9,7 +9,12 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-StateDirectory=dn42
+# No StateDirectory=: it takes a name under /var/lib and cannot follow
+# DN42_MMDB_STATE_DIR, so hardcoding one meant that changing the variable below
+# created an unused directory while the databases landed elsewhere. The service
+# runs as root and the script creates the directory itself, so the variable is
+# the single place the location is defined.
+#
 # Databases to fetch. Drop any you do not need, for example:
 #   Environment=DN42_MMDB_DATABASES="dn42-asn.mmdb dn42-country.mmdb"
 Environment=DN42_MMDB_DATABASES="dn42-asn.mmdb dn42-country.mmdb dn42-city.mmdb"

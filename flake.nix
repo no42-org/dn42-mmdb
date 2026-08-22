@@ -109,6 +109,21 @@
       nixosModules.default = { config, lib, pkgs, ... }:
         let
           cfg = config.services.dn42-mmdb;
+
+          # systemd only manages StateDirectory paths under /var/lib, and
+          # rejects ".." outright. Compute a safe relative name or null, so a
+          # stateDir it cannot express simply omits the setting rather than
+          # producing a unit that fails to load.
+          stateDirName =
+            let
+              rel = lib.removePrefix "/var/lib/" cfg.stateDir;
+              parts = lib.filter (s: s != "") (lib.splitString "/" rel);
+            in
+            if lib.hasPrefix "/var/lib/" cfg.stateDir
+               && parts != [ ]
+               && !(lib.elem ".." parts)
+            then lib.concatStringsSep "/" parts
+            else null;
         in
         {
           imports = [
@@ -183,13 +198,10 @@
                     ${pkgs.coreutils}/bin/chmod 0644 "${cfg.stateDir}/''${db}"
                   done
                 '';
-              } // lib.optionalAttrs (lib.hasPrefix "/var/lib/" cfg.stateDir) {
-                # systemd only manages StateDirectory paths under /var/lib, so
-                # derive it from stateDir and omit it when the operator points
-                # stateDir elsewhere. Hardcoding "dn42" meant a non-default
-                # stateDir left a stray empty /var/lib/dn42 behind while the
-                # script wrote somewhere else entirely.
-                StateDirectory = lib.removePrefix "/var/lib/" cfg.stateDir;
+              } // lib.optionalAttrs (stateDirName != null) {
+                # Hardcoding "dn42" meant a non-default stateDir left a stray
+                # empty /var/lib/dn42 behind while the script wrote elsewhere.
+                StateDirectory = stateDirName;
               };
             };
 
