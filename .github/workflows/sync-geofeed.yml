@@ -103,7 +103,12 @@ jobs:
         if: env.TS_OAUTH_CLIENT_ID != '' && env.TS_OAUTH_CLIENT_SECRET != ''
         continue-on-error: true
         run: |
-          echo "route     : $(ip -4 route | grep -cE '^172\.(2[0-3])\.' || true) dn42 v4 route(s)"
+          # Tailscale installs accepted subnet routes into table 52 with ip
+          # rules, not the main table, so `ip route` alone reports nothing and
+          # looks like a missing route. `ip route get` follows the rules.
+          echo "route main: $(ip -4 route | grep -cE '^172\.(2[0-3])\.' || true) dn42 route(s) in the main table"
+          echo "route t52 : $(ip -4 route show table 52 2>/dev/null | grep -cE '^172\.(2[0-3])\.' || true) dn42 route(s) in table 52"
+          printf 'route get : '; ip -4 route get 172.20.129.3 2>&1 | head -1
           echo "dns scope : $(resolvectl status tailscale0 2>/dev/null | grep -ci 'dn42' || true) dn42 reference(s)"
           resolvectl status tailscale0 2>/dev/null | grep -iE 'DNS Servers|DNS Domain|Current Scopes' | sed 's/^/            /'
           for h in burble.dn42 franta.dn42; do
