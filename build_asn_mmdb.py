@@ -9,56 +9,22 @@ can be used as a drop-in extra database for any MaxMind reader.
 """
 
 import argparse
-import os
 import re
 import sys
 
 from mmdb_writer import MMDBWriter
 from netaddr import IPNetwork, IPSet
 
+from dn42_registry import PREFIX_ERRORS, iter_objects, parse_object, warn
+
 ASN_RE = re.compile(r"AS(\d+)")
-
-
-def warn(msg):
-    print("WARNING: %s" % msg, file=sys.stderr)
-
-
-def parse_object(path):
-    """Parse an RPSL-style registry object into {key: [values]}.
-
-    Continuation lines (leading whitespace or '+') extend the previous value.
-    Unknown keys are kept; the caller picks what it needs.
-    """
-    attrs = {}
-    last_key = None
-    with open(path, encoding="utf-8") as f:
-        for line in f:
-            line = line.rstrip("\n")
-            if not line.strip():
-                continue
-            if line[0] in (" ", "\t", "+") and last_key:
-                cont = line.lstrip("+ \t")
-                if cont:
-                    attrs[last_key][-1] += " " + cont
-                continue
-            key, sep, value = line.partition(":")
-            if not sep:
-                raise ValueError("malformed line: %r" % line)
-            key = key.strip().lower()
-            attrs.setdefault(key, []).append(value.strip())
-            last_key = key
-    return attrs
 
 
 def collect_routes(registry, subdir, prefix_key):
     """Yield (IPNetwork, [asn, ...]) for every parseable object; count skips."""
     routes = {}
     skipped = 0
-    dirpath = os.path.join(registry, "data", subdir)
-    if not os.path.isdir(dirpath):
-        dirpath = os.path.join(registry, subdir)
-    for name in sorted(os.listdir(dirpath)):
-        path = os.path.join(dirpath, name)
+    for name, path in iter_objects(registry, subdir):
         try:
             attrs = parse_object(path)
             prefix = IPNetwork(attrs[prefix_key][0])
@@ -67,7 +33,7 @@ def collect_routes(registry, subdir, prefix_key):
                        for m in [ASN_RE.search(v)] if m]
             if not origins:
                 raise ValueError("no origin")
-        except (KeyError, ValueError, OSError) as exc:
+        except (KeyError, OSError, *PREFIX_ERRORS) as exc:
             warn("skipping %s/%s: %s" % (subdir, name, exc))
             skipped += 1
             continue
@@ -77,17 +43,14 @@ def collect_routes(registry, subdir, prefix_key):
 
 def collect_as_names(registry):
     names = {}
-    dirpath = os.path.join(registry, "data", "aut-num")
-    if not os.path.isdir(dirpath):
-        dirpath = os.path.join(registry, "aut-num")
-    for name in sorted(os.listdir(dirpath)):
+    for name, path in iter_objects(registry, "aut-num"):
         m = ASN_RE.fullmatch(name)
         if not m:
             continue
         try:
-            attrs = parse_object(os.path.join(dirpath, name))
+            attrs = parse_object(path)
             names[int(m.group(1))] = attrs["as-name"][0]
-        except (KeyError, ValueError, OSError) as exc:
+        except (KeyError, OSError, *PREFIX_ERRORS) as exc:
             warn("skipping aut-num/%s: %s" % (name, exc))
     return names
 
