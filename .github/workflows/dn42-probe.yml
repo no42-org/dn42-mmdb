@@ -46,7 +46,9 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
           tags: tag:ci-dn42
-          args: --accept-routes --accept-dns=true
+          # --accept-routes is passed by the action itself; repeating it makes
+          # `tailscale up` reject the whole invocation as a duplicate flag.
+          args: --accept-dns=true
 
       - name: Tailnet state
         continue-on-error: true
