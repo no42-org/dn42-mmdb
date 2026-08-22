@@ -109,6 +109,21 @@
       nixosModules.default = { config, lib, pkgs, ... }:
         let
           cfg = config.services.dn42-mmdb;
+
+          # systemd only manages StateDirectory paths under /var/lib, and
+          # rejects ".." outright. Compute a safe relative name or null, so a
+          # stateDir it cannot express simply omits the setting rather than
+          # producing a unit that fails to load.
+          stateDirName =
+            let
+              rel = lib.removePrefix "/var/lib/" cfg.stateDir;
+              parts = lib.filter (s: s != "") (lib.splitString "/" rel);
+            in
+            if lib.hasPrefix "/var/lib/" cfg.stateDir
+               && parts != [ ]
+               && !(lib.elem ".." parts)
+            then lib.concatStringsSep "/" parts
+            else null;
         in
         {
           imports = [
@@ -163,11 +178,13 @@
               wants = [ "network-online.target" ];
               serviceConfig = {
                 Type = "oneshot";
-                StateDirectory = "dn42";
                 ExecStart = pkgs.writeShellScript "dn42-mmdb-update" ''
                   set -euo pipefail
-                  TMP_DIR=$(mktemp -d)
-                  trap "rm -rf ''${TMP_DIR}" EXIT
+                  # Every binary is referenced by store path: a systemd unit
+                  # gets a minimal PATH with no coreutils, so bare mktemp and
+                  # rm fail with status 127 before anything else runs.
+                  TMP_DIR=$(${pkgs.coreutils}/bin/mktemp -d)
+                  trap "${pkgs.coreutils}/bin/rm -rf ''${TMP_DIR}" EXIT
                   BASE=https://github.com/no42-org/dn42-mmdb/releases/latest/download
                   ${pkgs.coreutils}/bin/mkdir -p "${cfg.stateDir}"
                   # Download and verify everything first, install second, so a
@@ -184,6 +201,10 @@
                     ${pkgs.coreutils}/bin/chmod 0644 "${cfg.stateDir}/''${db}"
                   done
                 '';
+              } // lib.optionalAttrs (stateDirName != null) {
+                # Hardcoding "dn42" meant a non-default stateDir left a stray
+                # empty /var/lib/dn42 behind while the script wrote elsewhere.
+                StateDirectory = stateDirName;
               };
             };
 
