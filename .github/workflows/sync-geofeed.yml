@@ -125,17 +125,23 @@ jobs:
           d = json.load(sys.stdin)
           s = d.get("Self", {})
           print("node tags :", s.get("Tags") or "NONE - the ACL rule cannot match")
-          own = ("100.", "fd7a")
-          print("allowedIPs:", [x for x in (s.get("AllowedIPs") or [])
-                                if not x.startswith(own)] or "no subnet routes accepted")
           peers = d.get("Peer") or {}
           print("peers seen:", len(peers))
           for p in peers.values():
-              routes = p.get("PrimaryRoutes") or []
-              if routes or p.get("HostName") == "melee":
-                  print("  ", p.get("HostName"), "routes:", routes or "none offered to us")
+              if p.get("HostName") != "melee":
+                  continue
+              # AllowedIPs is what WireGuard will actually route to this peer.
+              # PrimaryRoutes is only what the peer advertises; a packet is
+              # dropped unless some peer claims its destination here.
+              print("melee      : online=%s active=%s" % (p.get("Online"), p.get("Active")))
+              print("  primary  :", p.get("PrimaryRoutes") or "none")
+              print("  allowedIP:", p.get("AllowedIPs") or "none")
+              print("  relay    :", p.get("Relay"), "curAddr:", p.get("CurAddr") or "(derp)")
           PYEOF
           tailscale status --json 2>/dev/null | python3 /tmp/tsdiag.py || echo "(status unavailable)"
+          # Does the tunnel itself carry traffic, and via which peer?
+          printf 'ts ping melee : '; timeout 15 tailscale ping --c 2 --timeout 5s melee 2>&1 | tail -1
+          printf 'ts ping burble: '; timeout 15 tailscale ping --c 2 --timeout 5s 172.20.129.3 2>&1 | tail -1
 
       # Feeds on *.dn42 hostnames need the step above to have succeeded. Without
       # it the tool reports them unreachable and keeps their existing rows, so a
