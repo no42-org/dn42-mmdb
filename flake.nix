@@ -163,7 +163,6 @@
               wants = [ "network-online.target" ];
               serviceConfig = {
                 Type = "oneshot";
-                StateDirectory = "dn42";
                 ExecStart = pkgs.writeShellScript "dn42-mmdb-update" ''
                   set -euo pipefail
                   TMP_DIR=$(mktemp -d)
@@ -184,6 +183,13 @@
                     ${pkgs.coreutils}/bin/chmod 0644 "${cfg.stateDir}/''${db}"
                   done
                 '';
+              } // lib.optionalAttrs (lib.hasPrefix "/var/lib/" cfg.stateDir) {
+                # systemd only manages StateDirectory paths under /var/lib, so
+                # derive it from stateDir and omit it when the operator points
+                # stateDir elsewhere. Hardcoding "dn42" meant a non-default
+                # stateDir left a stray empty /var/lib/dn42 behind while the
+                # script wrote somewhere else entirely.
+                StateDirectory = lib.removePrefix "/var/lib/" cfg.stateDir;
               };
             };
 
