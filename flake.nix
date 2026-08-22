@@ -180,8 +180,11 @@
                 Type = "oneshot";
                 ExecStart = pkgs.writeShellScript "dn42-mmdb-update" ''
                   set -euo pipefail
-                  TMP_DIR=$(mktemp -d)
-                  trap "rm -rf ''${TMP_DIR}" EXIT
+                  # Every binary is referenced by store path: a systemd unit
+                  # gets a minimal PATH with no coreutils, so bare mktemp and
+                  # rm fail with status 127 before anything else runs.
+                  TMP_DIR=$(${pkgs.coreutils}/bin/mktemp -d)
+                  trap "${pkgs.coreutils}/bin/rm -rf ''${TMP_DIR}" EXIT
                   BASE=https://github.com/no42-org/dn42-mmdb/releases/latest/download
                   ${pkgs.coreutils}/bin/mkdir -p "${cfg.stateDir}"
                   # Download and verify everything first, install second, so a
