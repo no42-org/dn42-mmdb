@@ -174,8 +174,11 @@ After pulling registry updates, rebuild and redeploy:
 ```sh
 git -C /path/to/registry pull
 make build REGISTRY=/path/to/registry PYTHON=.venv/bin/python
-cp dn42-asn.mmdb dn42-country.mmdb dn42-city.mmdb /usr/share/GeoIP/
+cp dn42-asn.mmdb dn42-country.mmdb dn42-city.mmdb /var/lib/dn42/
 ```
+
+`/var/lib/dn42` is where the systemd unit and the NixOS module install the databases, so a manual rebuild that writes elsewhere will be silently replaced the next time the timer fires.
+Change `DN42_MMDB_STATE_DIR` in `systemd/dn42-mmdb-update.service`, or `services.dn42-mmdb.stateDir` on NixOS, if you want them somewhere else.
 
 ## Example: Riptide
 
@@ -184,11 +187,17 @@ Add the file as an extra GeoIP database in [Riptide](https://riptide.space/), no
 ```yaml
 geoip:
     databases:
+      # maintained by geoipupdate
       - /usr/share/GeoIP/GeoLite2-ASN.mmdb
       - /usr/share/GeoIP/GeoLite2-City.mmdb
-      - /usr/share/GeoIP/dn42-asn.mmdb
-      - /usr/share/GeoIP/dn42-city.mmdb
+      # maintained by the dn42-mmdb updater
+      - /var/lib/dn42/dn42-asn.mmdb
+      - /var/lib/dn42/dn42-city.mmdb
 ```
+
+The two sets live in different places because different tools own them.
+`geoipupdate` writes MaxMind's files to `/usr/share/GeoIP`, while the dn42 databases are machine-generated state and belong under `/var/lib`, which is also what systemd's `StateDirectory=` gives the update service.
+Point these at wherever you actually installed them if you place the files by hand.
 
 `dn42-country.mmdb` is deliberately absent.
 `dn42-city.mmdb` already answers for every prefix it covers, and carries the located country as well as the registered one, so loading both adds nothing.
