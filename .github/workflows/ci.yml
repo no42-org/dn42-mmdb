@@ -10,10 +10,17 @@ on:
     branches: [ main ]
   workflow_call:
 
-# The group must never equal a caller's group: inside a workflow_call,
-# github.workflow resolves to the caller's name, and a shared group deadlocks.
+# Inside a workflow_call, github.workflow resolves to the caller's name and
+# github.event_name to the caller's event. Two consequences, both learned the
+# hard way:
+#   - The group must never equal a caller's own group, or the call self-
+#     deadlocks. The 'ci-' prefix guarantees that.
+#   - Two callers running at the same time must not share a group either, or
+#     with cancel-in-progress one cancels the other's gate. Including
+#     github.workflow separates them.
+# Direct push and pull_request runs keep superseding one another.
 concurrency:
-  group: ci-${{ github.ref }}-${{ github.event_name }}
+  group: ci-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 permissions:

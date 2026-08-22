@@ -1,0 +1,124 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+name: Sync Geofeed Snapshot
+
+# Same weekly time as the release, declared separately: this workflow reaches
+# third-party networks and the release workflow must not. Deliberately no
+# pull_request trigger, so no untrusted fork run can reach the tailnet.
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      registry_url:
+        # No default: the inputs context is populated with declared defaults on
+        # workflow_dispatch and empty on schedule, so a default here would
+        # always win the || chain below and mask DN42_REGISTRY_URL.
+        description: 'DN42 registry git repository URL (overrides DN42_REGISTRY_URL)'
+        required: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    name: Quality Gates
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+      security-events: write
+
+  sync:
+    name: Refresh Geofeed Snapshot
+    needs: gates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      # Lifted to job level so the Tailscale step can test for it: the secrets
+      # context is not available in a step-level `if:`.
+      TS_OAUTH_CLIENT_ID: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: '3.x'
+
+      - name: Shallow clone DN42 registry
+        uses: ./.github/actions/clone-registry
+        with:
+          registry-url: ${{ inputs.registry_url || secrets.DN42_REGISTRY_URL || vars.DN42_REGISTRY_URL || 'https://git.dn42.dev/dn42/registry.git' }}
+          registry-token: ${{ secrets.DN42_REGISTRY_TOKEN }}
+
+      # Reaches dn42 through the maintainer's peer, which advertises
+      # 172.20.0.0/14 and fd00::/8 into the tailnet as a subnet router.
+      #
+      # Skipped when no credential is configured, which is the case in every
+      # fork, and never fatal: without it the sync still collects every
+      # clearnet-reachable feed, and feeds it cannot reach keep the rows the
+      # committed snapshot already has.
+      - name: Join the tailnet for dn42 reachability
+        if: env.TS_OAUTH_CLIENT_ID != ''
+        continue-on-error: true
+        uses: tailscale/github-action@780049a30b6ff5c378a9e7b389d15ece7a204888  # v4.1.3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci-dn42
+          args: --accept-routes --accept-dns=true
+
+      # Feeds on *.dn42 hostnames need the step above to have succeeded. Without
+      # it the tool reports them unreachable and keeps their existing rows, so a
+      # partial fetch narrows the snapshot rather than emptying it. The summary
+      # line reports how many feeds were fetched and how many were unreachable.
+      - name: Refresh the geofeed snapshot
+        run: make sync REGISTRY=registry
+
+      - name: Open a pull request when the snapshot changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          # --porcelain, not `git diff`: the snapshot may be untracked, and
+          # `git diff` reports no change for a file git has never seen.
+          if [ -z "$(git status --porcelain -- data/geofeed.csv)" ]; then
+            echo "Geofeed snapshot unchanged, nothing to propose."
+            exit 0
+          fi
+
+          # Run id in the branch name: a second run on the same UTC day would
+          # otherwise push non-fast-forward to an existing branch and fail.
+          BRANCH="geofeed-sync/$(date -u +%Y.%m.%d)-${GITHUB_RUN_ID}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$BRANCH"
+          git add data/geofeed.csv
+          git commit -s -m 'chore(geofeed): refresh RFC 8805 snapshot from the registry' \
+            -m 'Automated refresh. Rows outside their declaring inetnum are rejected by tools/sync_geofeed.py.' \
+            -m 'Assisted-by: GitHubActions:sync-geofeed'
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:$BRANCH"
+
+          cat > /tmp/pr-body.md <<'BODY'
+          Automated refresh of `data/geofeed.csv` from geofeeds declared in the DN42 registry.
+
+          Review the diff before merging: these rows come from third-party URLs. `tools/sync_geofeed.py` rejects any row naming space outside the `inetnum` that declared the feed, and `build_geo_mmdb.py` re-applies that check at build time.
+
+          Merging makes this snapshot part of the next weekly `dn42-city.mmdb`.
+          BODY
+
+          gh pr create --head "$BRANCH" --base "${GITHUB_REF_NAME}" \
+            --title 'chore(geofeed): refresh RFC 8805 snapshot' \
+            --body-file /tmp/pr-body.md
