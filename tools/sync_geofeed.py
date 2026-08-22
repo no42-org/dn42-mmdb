@@ -20,6 +20,7 @@ import io
 import ipaddress
 import os
 import re
+import ssl
 import sys
 import urllib.error
 import urllib.parse
@@ -45,6 +46,14 @@ USER_AGENT = "dn42-mmdb geofeed sync (+https://github.com/no42-org/dn42-mmdb)"
 # https:// URL can still redirect to an internal address. Blocking that needs
 # per-hop address filtering, which is not implemented here.
 ALLOWED_SCHEMES = ("http", "https")
+
+# dn42 runs its own certificate authority, so no .dn42 host validates against
+# the public trust store. The vendored root is added ON TOP of the system
+# store, and only for .dn42 hosts: clearnet feeds keep validating normally,
+# and verification is never disabled for anything.
+DN42_CA = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "dn42-root.pem")
+DN42_SUFFIX = ".dn42"
 
 # A feed is a short CSV. Anything larger is a mistake or an attempt to
 # exhaust the runner, and --timeout does not bound total transfer size.
@@ -81,13 +90,25 @@ def discover(registry):
     return feeds
 
 
-def fetch(url, timeout):
-    scheme = urllib.parse.urlsplit(url).scheme.lower()
+def _dn42_context(ca_file):
+    """System trust store plus the dn42 root, for .dn42 hosts only."""
+    context = ssl.create_default_context()
+    context.load_verify_locations(cafile=ca_file)
+    return context
+
+
+def fetch(url, timeout, dn42_context=None):
+    parts = urllib.parse.urlsplit(url)
+    scheme = parts.scheme.lower()
     if scheme not in ALLOWED_SCHEMES:
         raise ValueError("refusing %r scheme, expected one of %s"
                          % (scheme, ", ".join(ALLOWED_SCHEMES)))
+
+    host = (parts.hostname or "").lower()
+    context = dn42_context if host.endswith(DN42_SUFFIX) else None
+
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=timeout) as response:
+    with urllib.request.urlopen(req, timeout=timeout, context=context) as response:
         body = response.read(MAX_FEED_BYTES + 1)
     if len(body) > MAX_FEED_BYTES:
         raise ValueError("feed exceeds %d bytes" % MAX_FEED_BYTES)
@@ -178,6 +199,8 @@ def main():
                         help="per-feed timeout in seconds (default: %(default)s)")
     parser.add_argument("--jobs", type=int, default=12,
                         help="concurrent fetches (default: %(default)s)")
+    parser.add_argument("--dn42-ca", default=DN42_CA,
+                        help="trust anchor for .dn42 hosts (default: %(default)s)")
     args = parser.parse_args()
 
     feeds = discover(args.registry)
@@ -185,6 +208,12 @@ def main():
         print("error: no geofeed declarations found in the registry",
               file=sys.stderr)
         return 1
+
+    if not os.path.exists(args.dn42_ca):
+        print("error: dn42 trust anchor missing: %s" % args.dn42_ca,
+              file=sys.stderr)
+        return 1
+    dn42_context = _dn42_context(args.dn42_ca)
 
     existing = load_existing(args.output)
     accepted = []
@@ -194,7 +223,7 @@ def main():
     def work(item):
         url, allowed = item
         try:
-            return url, fetch(url, args.timeout), None
+            return url, fetch(url, args.timeout, dn42_context), None
         except Exception as exc:  # noqa: BLE001
             # Deliberately broad. One misbehaving feed must not abort the run
             # and lose the whole snapshot. http.client exceptions in

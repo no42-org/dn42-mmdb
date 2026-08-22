@@ -63,6 +63,9 @@
             cp build_asn_mmdb.py build_geo_mmdb.py dn42_registry.py \
               iso_countries.py tools/sync_geofeed.py $out/share/dn42-mmdb/
             cp data/geofeed.csv $out/share/dn42-mmdb/geofeed.csv
+            # sync_geofeed.py resolves the trust anchor next to itself, so it
+            # has to land in the same flat directory as the scripts.
+            cp tools/dn42-root.pem $out/share/dn42-mmdb/dn42-root.pem
 
             makeWrapper ${pkgs.python3}/bin/python $out/bin/dn42-mmdb \
               --add-flags "$out/share/dn42-mmdb/build_asn_mmdb.py" \
