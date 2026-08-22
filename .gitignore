@@ -5,6 +5,9 @@
 __pycache__/
 registry/
 
+# IDE
+.idea/
+
 # AI tools
 _bmad-output/
 _bmad/
