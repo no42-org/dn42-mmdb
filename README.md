@@ -190,6 +190,11 @@ geoip:
       - /usr/share/GeoIP/dn42-city.mmdb
 ```
 
+`dn42-country.mmdb` is deliberately absent.
+`dn42-city.mmdb` already answers for every prefix it covers, and carries the located country as well as the registered one, so loading both adds nothing.
+Use the country database instead of the city one if you want the smaller file or need `.country()`, which a City database refuses, but not both.
+The same is true upstream, which is why the example lists `GeoLite2-City.mmdb` and not `GeoLite2-Country.mmdb`.
+
 ## Documentation
 
 - [Contributing Guidelines](CONTRIBUTING.md)
