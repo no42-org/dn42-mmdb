@@ -48,6 +48,17 @@ The release workflow resolves the registry URL in this order:
 Configure either a `DN42_REGISTRY_TOKEN` secret holding a git.dn42.dev access token, or a `DN42_REGISTRY_URL` variable naming a registry mirror you trust.
 With neither set, the clone step fails immediately and tells you both options rather than letting git fail on a credential prompt.
 
+### Geofeed coverage in a fork
+
+The registry declares 39 geofeed URLs, and 22 of them are on `.dn42` hostnames that are unreachable from the public internet.
+
+The upstream sync workflow reaches them by joining the maintainer's tailnet as an ephemeral node, routed to dn42 through a peer acting as a subnet router.
+That needs `TS_OAUTH_CLIENT_ID` and `TS_OAUTH_CLIENT_SECRET`, which a fork will not have, so the step is skipped and the sync collects the clearnet-reachable feeds only.
+
+This is expected, not a failure.
+Rows from feeds that could not be reached are retained from the committed snapshot rather than dropped, so a fork's sync narrows coverage instead of destroying it.
+The same applies upstream whenever the peer is down.
+
 ### Mirrors must be non-commercial
 
 The registry's own README states:
