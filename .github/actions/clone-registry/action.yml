@@ -1,0 +1,84 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+name: 'Clone DN42 registry'
+description: 'Shallow-clone the DN42 registry, with credentials when configured.'
+
+inputs:
+  registry-url:
+    description: 'Registry git URL to clone.'
+    required: true
+  registry-token:
+    description: 'Access token for a registry that requires credentials.'
+    required: false
+    default: ''
+  path:
+    description: 'Directory to clone into.'
+    required: false
+    default: 'registry'
+
+runs:
+  using: 'composite'
+  steps:
+    # Values reach the shell through env rather than ${{ }} interpolation, so a
+    # registry URL can never be spliced into the script body.
+    - name: Clone the registry
+      shell: bash
+      env:
+        GIT_TERMINAL_PROMPT: '0'
+        REGISTRY_URL: ${{ inputs.registry-url }}
+        REGISTRY_TOKEN: ${{ inputs.registry-token }}
+        REGISTRY_PATH: ${{ inputs.path }}
+      run: |
+        if [ -n "$REGISTRY_TOKEN" ]; then
+          # The token is spliced in by rewriting an https:// prefix. For any
+          # other scheme that rewrite is a no-op, which would silently clone
+          # unauthenticated instead of using the configured credentials.
+          case "$REGISTRY_URL" in
+            https://*)
+              AUTH_URL="${REGISTRY_URL/https:\/\//https://${REGISTRY_TOKEN}@}"
+              git -c http.extraheader="" clone --depth 1 "$AUTH_URL" "$REGISTRY_PATH"
+              exit $?
+              ;;
+            *)
+              {
+                echo "Error: a registry token is configured, but token authentication"
+                echo "only works for https:// URLs. Got: $REGISTRY_URL"
+                echo
+                echo "Either set an https:// registry URL, or drop the token and use"
+                echo "a URL your runner can read without one."
+              } >&2
+              exit 1
+              ;;
+          esac
+        fi
+
+        # git.dn42.dev has no anonymous route over https: the git endpoints
+        # answer 401, and /archive/master.tar.gz answers 200 with a sign-in page
+        # rather than an archive. Cloning it without a token cannot succeed, so
+        # say why instead of letting git fail with a credential prompt error.
+        # Only the https form is matched; an ssh URL may work with a key, which
+        # is not something this check can know about.
+        case "$REGISTRY_URL" in
+          *//git.dn42.dev/*)
+            {
+              echo "Error: cannot clone the DN42 registry from $REGISTRY_URL"
+              echo
+              echo "git.dn42.dev requires an account and cannot be read anonymously."
+              echo "Configure one of the following:"
+              echo
+              echo "  * DN42_REGISTRY_TOKEN  - a git.dn42.dev access token, as a repository secret."
+              echo
+              echo "  * DN42_REGISTRY_URL    - a repository variable naming a registry mirror you"
+              echo "                           trust. It must be NON-COMMERCIAL: the registry"
+              echo "                           forbids mirroring into commercial git hosting,"
+              echo "                           because it holds members' personal data."
+            } >&2
+            exit 1
+            ;;
+        esac
+
+        if ! git -c http.extraheader="" clone --depth 1 "$REGISTRY_URL" "$REGISTRY_PATH"; then
+          echo "Error: Failed to clone DN42 registry from $REGISTRY_URL" >&2
+          exit 1
+        fi

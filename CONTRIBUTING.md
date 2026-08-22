@@ -28,3 +28,34 @@ The human submitter signing off the commit remains fully responsible for review,
 1. Open a GitHub issue describing the bug or feature before submitting a Pull Request.
 2. Ensure `make verify` passes cleanly.
 3. Submit your Pull Request referencing the issue using `Closes #<issue-number>`.
+
+## Getting a registry checkout
+
+Building the databases needs a checkout of the [dn42 registry](https://git.dn42.dev/dn42/registry).
+`git.dn42.dev` requires an account and has no anonymous route: the git endpoints answer `401`, and `/archive/master.tar.gz` answers `200` with a sign-in page rather than an archive.
+
+Note that `make verify` needs no registry at all, so most contributions require none of this.
+
+### In your own fork's CI
+
+The release workflow resolves the registry URL in this order:
+
+1. the `registry_url` input, when you start the workflow manually
+2. the `DN42_REGISTRY_URL` secret
+3. the `DN42_REGISTRY_URL` repository variable
+4. `https://git.dn42.dev/dn42/registry.git`
+
+Configure either a `DN42_REGISTRY_TOKEN` secret holding a git.dn42.dev access token, or a `DN42_REGISTRY_URL` variable naming a registry mirror you trust.
+With neither set, the clone step fails immediately and tells you both options rather than letting git fail on a credential prompt.
+
+### Mirrors must be non-commercial
+
+The registry's own README states:
+
+> You **must not** clone or mirror the registry in to a commercial git repository; commercial terms of service can be incompatible with the use of personal data in the registry.
+
+The registry holds dn42 members' personal information, and whoever copies it is expected to honour update and deletion requests.
+Mirrors hosted on commercial git platforms are therefore out, and this project does not name a mirror to point you at.
+Choosing one is your decision for your own fork.
+
+This project's own CI clone is compatible with that restriction: it is shallow, exists only in an ephemeral runner filesystem, is never pushed anywhere, and is destroyed when the job ends.
