@@ -20,6 +20,7 @@ import io
 import ipaddress
 import os
 import re
+import socket
 import ssl
 import sys
 import urllib.error
@@ -49,11 +50,24 @@ ALLOWED_SCHEMES = ("http", "https")
 
 # dn42 runs its own certificate authority, so no .dn42 host validates against
 # the public trust store. The vendored root is added ON TOP of the system
-# store, and only for .dn42 hosts: clearnet feeds keep validating normally,
-# and verification is never disabled for anything.
+# store; verification is never disabled for anything.
+#
+# It is added unconditionally rather than per host, because the root carries
+# name constraints permitting only DNS:.dn42, IP:172.20.0.0/14 and
+# IP:fd42::/16. It therefore cannot vouch for a clearnet host even if one
+# presented a certificate chaining to it, and per-host context switching
+# bought nothing while missing dn42 IP literals and cross-scheme redirects.
 DN42_CA = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "dn42-root.pem")
 DN42_SUFFIX = ".dn42"
+
+# Where a feed, or a redirect from one, may point. Feed URLs come from
+# third-party registry objects, and this job runs with a tailnet route table,
+# so an unfiltered redirect would let any registry maintainer aim the runner
+# at a private address. Public space and dn42 space are permitted; the tailnet
+# CGNAT range, RFC1918, loopback and link-local are not.
+DN42_NETWORKS = (ipaddress.ip_network("172.20.0.0/14"),
+                 ipaddress.ip_network("fd00::/8"))
 
 # A feed is a short CSV. Anything larger is a mistake or an attempt to
 # exhaust the runner, and --timeout does not bound total transfer size.
@@ -91,24 +105,63 @@ def discover(registry):
 
 
 def _dn42_context(ca_file):
-    """System trust store plus the dn42 root, for .dn42 hosts only."""
+    """System trust store plus the name-constrained dn42 root."""
     context = ssl.create_default_context()
     context.load_verify_locations(cafile=ca_file)
     return context
 
 
-def fetch(url, timeout, dn42_context=None):
+def _permitted_address(addr):
+    ip = ipaddress.ip_address(addr)
+    if any(ip in net for net in DN42_NETWORKS if ip.version == net.version):
+        return True
+    return ip.is_global
+
+
+def check_target(url):
+    """Reject a URL by scheme, or because it resolves somewhere private.
+
+    Applied to the declared URL and again to every redirect hop. DNS can
+    change between this check and the connection, so this bounds honest
+    misconfiguration and casual abuse rather than a determined attacker.
+    """
     parts = urllib.parse.urlsplit(url)
     scheme = parts.scheme.lower()
     if scheme not in ALLOWED_SCHEMES:
         raise ValueError("refusing %r scheme, expected one of %s"
                          % (scheme, ", ".join(ALLOWED_SCHEMES)))
+    host = parts.hostname
+    if not host:
+        raise ValueError("no host in %r" % url)
+    try:
+        infos = socket.getaddrinfo(host, parts.port or
+                                   (443 if scheme == "https" else 80))
+    except socket.gaierror as exc:
+        raise ValueError("cannot resolve %s: %s" % (host, exc))
+    for info in infos:
+        addr = info[4][0]
+        if not _permitted_address(addr):
+            raise ValueError("refusing %s: resolves to non-public, non-dn42 "
+                             "address %s" % (host, addr))
+    return url
 
-    host = (parts.hostname or "").lower()
-    context = dn42_context if host.endswith(DN42_SUFFIX) else None
 
+class _CheckedRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Re-apply the target policy on every redirect hop."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        check_target(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def fetch(url, timeout, context=None):
+    check_target(url)
+    opener = urllib.request.build_opener(
+        _CheckedRedirectHandler(),
+        urllib.request.HTTPSHandler(context=context) if context
+        else urllib.request.HTTPSHandler())
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=timeout, context=context) as response:
+    with opener.open(req, timeout=timeout) as response:
         body = response.read(MAX_FEED_BYTES + 1)
     if len(body) > MAX_FEED_BYTES:
         raise ValueError("feed exceeds %d bytes" % MAX_FEED_BYTES)
@@ -209,11 +262,22 @@ def main():
               file=sys.stderr)
         return 1
 
-    if not os.path.exists(args.dn42_ca):
-        print("error: dn42 trust anchor missing: %s" % args.dn42_ca,
-              file=sys.stderr)
+    # Fatal only when it matters. A packaging path that ships the scripts
+    # without the anchor must still sync clearnet feeds, but must never fetch
+    # a .dn42 feed unverified.
+    dn42_feeds = [u for u in feeds
+                  if (urllib.parse.urlsplit(u).hostname or "")
+                  .lower().endswith(DN42_SUFFIX)]
+    if os.path.exists(args.dn42_ca):
+        context = _dn42_context(args.dn42_ca)
+    elif dn42_feeds:
+        print("error: %d feed(s) are on .dn42 hosts but the trust anchor is "
+              "missing: %s" % (len(dn42_feeds), args.dn42_ca), file=sys.stderr)
         return 1
-    dn42_context = _dn42_context(args.dn42_ca)
+    else:
+        warn("no dn42 trust anchor at %s; no .dn42 feeds are declared, "
+             "continuing with the system trust store" % args.dn42_ca)
+        context = None
 
     existing = load_existing(args.output)
     accepted = []
@@ -223,7 +287,7 @@ def main():
     def work(item):
         url, allowed = item
         try:
-            return url, fetch(url, args.timeout, dn42_context), None
+            return url, fetch(url, args.timeout, context), None
         except Exception as exc:  # noqa: BLE001
             # Deliberately broad. One misbehaving feed must not abort the run
             # and lose the whole snapshot. http.client exceptions in
