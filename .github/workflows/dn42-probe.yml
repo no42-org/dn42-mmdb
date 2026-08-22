@@ -66,7 +66,7 @@ jobs:
         run: |
           for h in burble.dn42 sess.dn42 mashiro.dn42 geofeed.nia.dn42 defelo.dn42; do
             printf '%-26s ' "$h"
-            getent hosts "$h" | head -1 || echo "NO RESOLVE"
+            addr=$(getent hosts "$h" | head -1) && [ -n "$addr" ] && echo "$addr" || echo "NO RESOLVE"
           done
 
       - name: Reach the dn42 anycast recursors
@@ -76,6 +76,11 @@ jobs:
             printf '%-16s ' "$ip"
             ping -c1 -W3 "$ip" >/dev/null 2>&1 && echo reachable || echo "no reply"
           done
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Shallow clone DN42 registry
         uses: ./.github/actions/clone-registry
