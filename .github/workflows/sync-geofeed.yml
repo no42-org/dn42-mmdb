@@ -112,6 +112,25 @@ jobs:
           done
           printf 'connect   : burble:443     '
           timeout 8 bash -c '</dev/tcp/172.20.129.3/443' 2>/dev/null && echo open || echo "unreachable"
+          # Which tag did this node actually get, and is the subnet router
+          # offering us its routes? A tag mismatch and an ACL that does not
+          # permit the CIDR look identical from the fetch results alone.
+          cat > /tmp/tsdiag.py <<'PYEOF'
+          import json, sys
+          d = json.load(sys.stdin)
+          s = d.get("Self", {})
+          print("node tags :", s.get("Tags") or "NONE - the ACL rule cannot match")
+          own = ("100.", "fd7a")
+          print("allowedIPs:", [x for x in (s.get("AllowedIPs") or [])
+                                if not x.startswith(own)] or "no subnet routes accepted")
+          peers = d.get("Peer") or {}
+          print("peers seen:", len(peers))
+          for p in peers.values():
+              routes = p.get("PrimaryRoutes") or []
+              if routes or p.get("HostName") == "melee":
+                  print("  ", p.get("HostName"), "routes:", routes or "none offered to us")
+          PYEOF
+          tailscale status --json 2>/dev/null | python3 /tmp/tsdiag.py || echo "(status unavailable)"
 
       # Feeds on *.dn42 hostnames need the step above to have succeeded. Without
       # it the tool reports them unreachable and keeps their existing rows, so a
