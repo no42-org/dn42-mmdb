@@ -142,25 +142,33 @@ jobs:
           # Does the tunnel itself carry traffic, and via which peer?
           printf 'ts ping melee : '; timeout 15 tailscale ping --c 2 --timeout 5s melee 2>&1 | tail -1
           printf 'ts ping burble: '; timeout 15 tailscale ping --c 2 --timeout 5s 172.20.129.3 2>&1 | tail -1
-          # TCP to a feed host works but name resolution does not, so separate
-          # the network path to the resolver from the resolver itself.
-          printf 'tcp 53        : '
-          timeout 8 bash -c '</dev/tcp/172.20.0.53/53' 2>/dev/null && echo "recursor reachable on tcp" || echo "recursor unreachable on tcp"
-          printf 'udp 53        : '
-          timeout 10 python3 -c '
-          import socket, struct, sys
+          # Probe whichever resolver the tailnet actually pushed, rather than
+          # a hard-coded address: the dn42 anycast recursors were retired in
+          # favour of the subnet router's own CoreDNS, and a fixed probe would
+          # report a failure against an address nothing uses any more.
+          RESOLVER=$(resolvectl status tailscale0 2>/dev/null \
+                     | awk '/DNS Servers:/{print $3; exit}')
+          echo "resolver  : ${RESOLVER:-none pushed by the tailnet}"
+          if [ -n "$RESOLVER" ]; then
+            printf 'tcp 53    : '
+            timeout 8 bash -c "</dev/tcp/$RESOLVER/53" 2>/dev/null \
+              && echo "reachable" || echo "unreachable"
+            printf 'udp 53    : '
+            RESOLVER="$RESOLVER" timeout 10 python3 -c '
+          import os, socket, struct
           q = struct.pack("!HHHHHH", 0x1234, 0x0100, 1, 0, 0, 0)
           for label in (b"burble", b"dn42"):
               q += bytes([len(label)]) + label
           q += b"\x00" + struct.pack("!HH", 1, 1)
           s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.settimeout(6)
           try:
-              s.sendto(q, ("172.20.0.53", 53))
+              s.sendto(q, (os.environ["RESOLVER"], 53))
               data, _ = s.recvfrom(512)
-              print("answer received, %d bytes, ancount=%d" % (len(data), struct.unpack("!H", data[6:8])[0]))
+              print("answer received, ancount=%d" % struct.unpack("!H", data[6:8])[0])
           except Exception as exc:
               print("no answer: %s: %s" % (type(exc).__name__, exc))
           ' 2>&1 | tail -1
+          fi
           printf 'resolvectl    : '; resolvectl query burble.dn42 2>&1 | tail -1
 
       # Feeds on *.dn42 hostnames need the step above to have succeeded. Without
