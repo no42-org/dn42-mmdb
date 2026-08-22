@@ -96,6 +96,23 @@ jobs:
           # and those steps have no continue-on-error to fall back on.
           args: --accept-dns=true
 
+      # Says why a run did or did not reach dn42. Without this the only
+      # signal is "N fetched, M unreachable", which cannot distinguish an
+      # unapproved route from missing split DNS from a blocking ACL.
+      - name: Report dn42 reachability
+        if: env.TS_OAUTH_CLIENT_ID != '' && env.TS_OAUTH_CLIENT_SECRET != ''
+        continue-on-error: true
+        run: |
+          echo "route     : $(ip -4 route | grep -cE '^172\.(2[0-3])\.' || true) dn42 v4 route(s)"
+          echo "dns scope : $(resolvectl status tailscale0 2>/dev/null | grep -ci 'dn42' || true) dn42 reference(s)"
+          resolvectl status tailscale0 2>/dev/null | grep -iE 'DNS Servers|DNS Domain|Current Scopes' | sed 's/^/            /'
+          for h in burble.dn42 franta.dn42; do
+            addr=$(getent hosts "$h" 2>/dev/null | awk '{print $1}' | head -1)
+            printf 'resolve   : %-16s %s\n' "$h" "${addr:-NO RESOLVE}"
+          done
+          printf 'connect   : burble:443     '
+          timeout 8 bash -c '</dev/tcp/172.20.129.3/443' 2>/dev/null && echo open || echo "unreachable"
+
       # Feeds on *.dn42 hostnames need the step above to have succeeded. Without
       # it the tool reports them unreachable and keeps their existing rows, so a
       # partial fetch narrows the snapshot rather than emptying it. The summary
