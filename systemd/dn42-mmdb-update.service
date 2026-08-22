@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 [Unit]
-Description=Fetch latest DN42 MaxMind MMDB database
+Description=Fetch latest DN42 MaxMind MMDB databases
 Documentation=https://github.com/no42-org/dn42-mmdb
 After=network-online.target
 Wants=network-online.target
@@ -10,13 +10,23 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 StateDirectory=dn42
+# Databases to fetch. Drop any you do not need, for example:
+#   Environment=DN42_MMDB_DATABASES="dn42-asn.mmdb dn42-country.mmdb"
+Environment=DN42_MMDB_DATABASES="dn42-asn.mmdb dn42-country.mmdb dn42-city.mmdb"
+Environment=DN42_MMDB_STATE_DIR=/var/lib/dn42
+Environment=DN42_MMDB_BASE_URL=https://github.com/no42-org/dn42-mmdb/releases/latest/download
 ExecStart=/usr/bin/env bash -c '\
   set -euo pipefail; \
   TMP_DIR=$$(mktemp -d); \
   trap "rm -rf $${TMP_DIR}" EXIT; \
-  curl -sSL -o "$${TMP_DIR}/dn42-asn.mmdb" https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb; \
-  curl -sSL -o "$${TMP_DIR}/dn42-asn.mmdb.sha256" https://github.com/no42-org/dn42-mmdb/releases/latest/download/dn42-asn.mmdb.sha256; \
-  (cd "$${TMP_DIR}" && sha256sum -c dn42-asn.mmdb.sha256); \
-  mv "$${TMP_DIR}/dn42-asn.mmdb" /var/lib/dn42/dn42-asn.mmdb; \
-  chmod 0644 /var/lib/dn42/dn42-asn.mmdb \
+  mkdir -p "$${DN42_MMDB_STATE_DIR}"; \
+  for db in $${DN42_MMDB_DATABASES}; do \
+    curl -fsSL -o "$${TMP_DIR}/$${db}" "$${DN42_MMDB_BASE_URL}/$${db}"; \
+    curl -fsSL -o "$${TMP_DIR}/$${db}.sha256" "$${DN42_MMDB_BASE_URL}/$${db}.sha256"; \
+    (cd "$${TMP_DIR}" && sha256sum -c "$${db}.sha256"); \
+  done; \
+  for db in $${DN42_MMDB_DATABASES}; do \
+    mv "$${TMP_DIR}/$${db}" "$${DN42_MMDB_STATE_DIR}/$${db}"; \
+    chmod 0644 "$${DN42_MMDB_STATE_DIR}/$${db}"; \
+  done \
 '

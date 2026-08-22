@@ -1,0 +1,521 @@
+prefix,country,region,city,source,inetnum
+172.20.143.17/32,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.18/32,DE,DE-HE,Frankfurt,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.19/32,DE,DE-HE,Frankfurt,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.20/32,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.21/32,CN,CN-BJ,Beijing,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.22/32,CN,CN-BJ,Beijing,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.24/32,CN,CN-HK,Hong Kong,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.25/32,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.26/32,DE,DE-HE,Frankfurt,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.27/32,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.28/32,US,US-NY,New York,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.29/32,JP,JP-13,Tokyo,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.30/32,SG,SG-01,Singapore,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.31/32,CN,CN-HK,Hong Kong,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.16/28
+172.20.143.32/32,NL,NL-NH,Amsterdam,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.33/32,US,US-TX,Dallas,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.34/32,DE,DE-HE,Frankfurt,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.35/32,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.36/32,US,US-NY,New York,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.37/32,SG,SG-01,Singapore,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.38/32,JP,JP-13,Tokyo,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.39/32,AT,AT-9,Vienna,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.40/32,CN,CN-HK,Hong Kong,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.41/32,US,US-TX,Dallas,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.42/32,AT,AT-9,Vienna,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.43/32,AT,AT-9,Vienna,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.44/32,NL,NL-NH,Amsterdam,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.45/32,US,US-TX,Dallas,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.46/32,AT,AT-9,Vienna,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.143.47/32,NZ,NZ-AUK,Auckland,https://networkdesign.ping2.sh/public/geofeed.csv,172.20.143.32/27
+172.20.154.225/32,HK,,Kowloon,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.226/32,JP,JP-13,Tokyo,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.227/32,SG,,Singapore,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.228/32,GB,GB-LND,London,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.229/32,US,US-SLC,Salt Lake City,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.230/32,US,US-WA,Washington,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.231/32,NL,NL-AWS,Amsterdam,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.232/32,NL,NL-AWS,Amsterdam,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.233/32,CN,CN-GZ,Guangzhou,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.234/32,CN,CN-CD,Chengdu,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.154.235/32,CN,CN-SH,Shanghai,https://dn42.baka.pub/geofeed.csv,172.20.154.224/27
+172.20.209.64/26,CN,,China Mainland,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.64/29,,,Asia Pacific,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.64/31,HK,,Hong Kong,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.66/31,JP,JP-13,Tokyo,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.68/31,SG,,Singapore,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.70/32,ID,ID-JK,Jakarta,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.80/29,,,North America,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.80/31,US,US-CA,San Jose,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.82/31,US,US-NY,Buffalo,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.84/31,US,US-CA,San Jose,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.86/31,US,US-TX,Dallas,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.88/29,,,Europe,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.88/31,DE,DE-HE,Frankfurt,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.90/31,DE,DE-HE,Frankfurt,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.96/28,CN,,China Mainland,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.96/31,CN,CN-GD,Guangzhou,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.98/31,CN,CN-SC,Chengdu,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.100/31,CN,CN-NM,Hohhot,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.20.209.102/31,CN,CN-HB,Shiyan,http://geofeed.sherpherd.net/geofeed.csv,172.20.209.64/26
+172.21.65.160/32,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.65.161/32,JP,JP-13,Tokyo,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.65.162/32,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.65.163/32,JP,JP-13,Tokyo,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.65.165/32,DE,DE-HE,Frankfurt am Main,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.65.166/32,DE,DE-BY,Nuremberg,https://resource.net.chimon.org/dn42_geofeed.csv,172.21.65.160/27
+172.21.85.64/29,NZ,NZ-AUK,Auckland,https://geofeed.rivensbane.com/dn42_geofeed.csv,172.21.85.64/27
+172.21.85.72/29,AU,AU-NSW,Alexandria,https://geofeed.rivensbane.com/dn42_geofeed.csv,172.21.85.64/27
+172.21.85.80/29,CH,,,https://geofeed.rivensbane.com/dn42_geofeed.csv,172.21.85.64/27
+172.21.85.88/29,CH,GB,GB-LND,https://geofeed.rivensbane.com/dn42_geofeed.csv,172.21.85.64/27
+172.21.86.193/32,US,,Los Angeles,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.194/32,US,,Las Vegas,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.195/32,JP,,Osaka,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.199/32,HK,,Hong Kong,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.202/32,US,,San Jose,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.203/32,FR,,Paris,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.204/32,CN,,Beijing,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.206/32,SG,,Singapore,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.207/32,CN,,Leshan,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.208/32,HK,,Harmony Garden,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.210/32,HK,,Hong Kong,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.212/32,US,,Columbus,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.86.213/32,DE,,Nürnberg,https://dn42.moraxyc.com/geofeed.csv,172.21.86.192/27
+172.21.100.16/29,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.16/29
+172.21.100.128/29,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.136/29,CN,CN-SH,Shanghai,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.144/29,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.152/29,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.160/29,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.184/29,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.184/32,US,US-CA,San Jose,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.188/32,CN,CN-SH,Shanghai,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.189/32,CN,CN-GD,Guangzhou,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.190/32,JP,JP-13,Tokyo,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.191/32,US,US-CA,San Jose,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.192/32,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.193/32,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.194/32,NL,NL-NH,Amsterdam,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.195/32,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.196/32,DE,DE-HE,Frankfurt,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.199/32,TW,TW-TPE,Taipei,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.200/32,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.251/32,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.21.100.252/32,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,172.21.100.128/25
+172.22.76.117/32,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,172.22.76.96/27
+172.22.76.123/32,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,172.22.76.96/27
+172.22.76.185/32,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
+172.22.76.186/32,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
+172.22.76.187/32,CH,BE-246,Bern,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
+172.22.76.190/32,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
+172.22.77.32/31,TW,TW-TPE,Taipei,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.34/32,HK,,Hong Kong,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.35/32,JP,JP-13,Tokyo,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.36/32,SG,SG-01,Singapore,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.37/32,CN,CN-HN,Changsha,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.38/32,CN,CN-BJ,Beijing,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.39/32,CN,CN-SC,Chengdu,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.40/32,US,US-CA,California,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.41/32,US,US-WA,Seattle,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.42/32,DE,DE-HE,Hessen,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.43/32,NL,NL-NH,Amsterdam,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.46/32,AQ,,Antarctica,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.77.47/32,AQ,,Antarctica,https://dn42.kskb.eu.org/files/dn42geofeed.csv,172.22.77.32/27
+172.22.79.199/32,AQ,,,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.200/32,JP,JP-12,Narita,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.201/32,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.202/32,SG,SG-01,Singapore,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.203/32,CN,CN-GD,Shenzhen,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.204/32,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.206/32,US,US-CA,San Jose,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.207/32,DE,DE-HE,Frankfurt,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.208/32,US,US-NJ,Newark,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.209/32,NL,NL-NH,Amsterdam,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.210/32,FR,FR-IDF,Paris,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.211/32,PL,PL-14,Warsaw,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.212/32,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.213/32,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.214/32,CN,CN-HN,Changsha,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.215/32,CN,CN-HB,Wuhan,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.79.216/32,ZA,ZA-GP,Johannesburg,https://www.mhr.hk/dn42_geofeed.csv,172.22.79.192/27
+172.22.105.0/32,DE,BAVARIA,Nuremberg,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.1/32,US,VIRGINIA,Manassas,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.2/32,HK,HONG KONG,,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.3/32,US,CALIFORNIA,Los Angeles,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.4/32,JP,JAPAN,Tokyo,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.5/32,FR,,,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.8/32,CN,GUANGDONG,Guangzhou,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.10/32,CN,,,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.11/32,CN,,,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.105.12/32,CN,SHANGHAI,Shanghai,https://r2.factor2431.com/geofeed.csv,172.22.105.0/28
+172.22.123.0/32,CH,CH-ZH,Zürich,https://badaimweeb.me/geofeed.csv,172.22.123.0/27
+172.22.123.1/32,MA,MA-04,Rabat,https://badaimweeb.me/geofeed.csv,172.22.123.0/27
+172.22.123.2/32,CA,CA-QC,Beauharnois,https://badaimweeb.me/geofeed.csv,172.22.123.0/27
+172.22.123.3/32,NZ,NZ-AUK,Auckland,https://badaimweeb.me/geofeed.csv,172.22.123.0/27
+172.22.123.4/32,GU,US-GU,Guam,https://badaimweeb.me/geofeed.csv,172.22.123.0/27
+172.22.124.64/30,US,US-CA,Rocklin,https://gshapiro.net/dn42geofeed.csv,172.22.124.64/27
+172.22.130.160/32,VN,VN-SG,Ho Chi Minh City,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.161/32,US,US-UT,Salt Lake City,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.162/32,MY,MY-01,Johor Bahru,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.163/32,US,US-IL,Chicago,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.164/32,VN,VN-HN,Hanoi,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.165/32,VN,VN-SG,Ho Chi Minh City,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.166/32,DE,DE-HE,Frankfurt am Main,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.167/32,DE,DE-HE,Frankfurt am Main,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.168/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.169/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.170/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.171/32,VN,VN-39,Trảng Bom,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.172/32,VN,VN-39,Trảng Bom,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.173/32,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.184/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.185/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.186/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.187/32,RU,RU-MOW,Moscow,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.188/32,CA,CA-ON,Toronto,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.189/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.130.190/32,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,172.22.130.160/27
+172.22.142.128/32,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.129/32,MX,MX-MEX,Mexico City,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.130/32,CL,CL-RM,Santiago,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.131/32,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.132/32,PL,PL-22,Gdańsk,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.133/32,US,US-WA,Seattle,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.134/32,VN,VN-22,Vinh,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.135/32,NL,NL-FL,Lelystad,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.136/32,SE,SE-AB,Stockholm,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.137/32,BG,BG-22,Sofia,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.138/32,FR,FR-IDF,Paris,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.139/32,NG,NG-LA,Lagos,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.140/32,TR,TR-34,Istanbul,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.141/32,FI,FI-18,Helsinki,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.142/32,ZA,ZA-GP,Johannesburg,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.143/32,US,US-AZ,Phoenix,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.144/32,US,US-TX,Houston,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.145/32,NL,NL-NH,Amsterdam,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.146/32,US,US-NV,Las Vegas,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.147/32,US,US-MI,Detroit,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.148/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.149/32,IE,IE-L,Dublin,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.150/32,ES,ES-MD,Madrid,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.151/32,IS,IS-1,Reykjavík,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.152/32,DE,DE-SN,Falkenstein,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.153/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.154/32,JP,JP-27,Osaka,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.155/32,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.156/32,US,US-HI,Honolulu,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.157/32,LT,LT-SA,Šiauliai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.158/32,JP,JP-27,Osaka,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.159/32,KR,KR-11,Seoul,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.160/32,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.161/32,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.162/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.164/32,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.165/32,US,US-CA,Los Angeles,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.166/32,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.167/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.168/32,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.169/32,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.170/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.171/32,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.172/32,RU,RU-NVS,Novosibirsk,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.173/32,IN,IN-MH,Mumbai,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.174/32,US,US-MO,Kansas City,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.175/32,AU,AU-VIC,Melbourne,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.176/32,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.177/32,ID,ID-JK,Jakarta,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.178/32,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.179/32,HK,,Hong Kong,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.180/32,US,US-CA,Los Angeles,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.181/32,BR,BR-SP,Sao Paulo,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.182/32,HK,,Hong Kong,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.183/32,US,US-FL,Tampa,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.184/32,TW,TW-TPE,Taipei,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.185/32,VN,VN-DN,Da Nang,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.186/32,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.187/32,AO,AO-LUA,Luanda,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.188/32,US,US-CA,San Jose,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.189/32,GB,GB-ENG,London,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.142.190/32,US,US-NY,New York City,https://badaimweeb.me/geofeed.csv,172.22.142.128/26
+172.22.155.161/32,RU,RU-PRI,Vladivostok,https://smokeofanarchy.ru/dn42_geofeed_v4.csv,172.22.155.160/27
+172.22.155.162/32,DE,DE-HE,Frankfurt,https://smokeofanarchy.ru/dn42_geofeed_v4.csv,172.22.155.160/27
+172.22.155.163/32,CN,CN-HN,Hengyang,https://smokeofanarchy.ru/dn42_geofeed_v4.csv,172.22.155.160/27
+172.22.155.164/32,HK,,Hong Kong,https://smokeofanarchy.ru/dn42_geofeed_v4.csv,172.22.155.160/27
+172.22.155.165/32,JP,JP-13,Tokyo,https://smokeofanarchy.ru/dn42_geofeed_v4.csv,172.22.155.160/27
+172.22.159.100/32,US,US-WA,Seattle,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.101/32,US,US-MO,Kansas City,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.102/32,FR,FR-IDF,Paris,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.103/32,SG,SG-01,Singapore,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.104/32,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.105/32,GB,GB-ENG,London,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.106/32,HK,HK-HK,Hong Kong,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.107/32,FR,FR-HDF,Dunkerque,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.108/32,FI,FI-18,Helsinki,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.110/32,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.112/32,TW,TW-TXG,Taichung,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.114/32,RU,RU-MOW,Moscow,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.115/32,NL,NL-NH,Amsterdam,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.118/32,DE,DE-HE,Frankfurt,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.120/32,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.121/32,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.122/32,CN,CN-ZJ,Zhejiang,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.23.10.96/32,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.97/32,JP,JP-13,Tokyo,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.98/32,CN,CN-HK,Tsuen Wan,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.99/32,US,US-TX,Houston,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.100/32,US,US-CA,San Jose,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.101/32,DE,DE-HE,Frankfurt am Main,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.102/31,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.104/29,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.112/28,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+fd00:286:11e::/64,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:1::/64,JP,JP-13,Tokyo,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:2::/64,CN,CN-HK,Tsuen Wan,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:3::/64,US,US-TX,Houston,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:4::/64,US,US-CA,San Jose,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:5::/64,DE,DE-HE,Frankfurt am Main,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:6::/63,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:8::/61,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:10::/60,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:20::/59,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:40::/58,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:80::/57,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:100::/56,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:200::/55,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:400::/54,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:800::/53,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:1000::/52,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:2000::/51,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:4000::/50,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd00:286:11e:8000::/49,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,fd00:286:11e::/48
+fd28:cb8f:4c92::/63,TW,TW-TPE,Taipei,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:2::/64,HK,,Hong Kong,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:3::/64,JP,JP-13,Tokyo,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:4::/64,SG,SG-01,Singapore,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:5::/64,CN,CN-HN,Changsha,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:6::/64,CN,CN-BJ,Beijing,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:7::/64,CN,CN-SC,Chengdu,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:8::/64,US,US-CA,California,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:9::/64,US,US-WA,Seattle,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:a::/64,DE,DE-HE,Hessen,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:b::/64,NL,NL-NH,Amsterdam,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd28:cb8f:4c92:bbbb::/64,AQ,,Antarctica,https://dn42.kskb.eu.org/files/dn42geofeed.csv,fd28:cb8f:4c92::/48
+fd42:4242:2279:199::/64,AQ,,,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:200::/64,JP,JP-12,Narita,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:201::/64,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:202::/64,SG,SG-01,Singapore,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:203::/64,CN,CN-GD,Shenzhen,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:204::/64,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:206::/64,US,US-CA,San Jose,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:207::/64,DE,DE-HE,Frankfurt,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:208::/64,US,US-NJ,Newark,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:209::/64,NL,NL-NH,Amsterdam,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:210::/64,FR,FR-IDF,Paris,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:211::/64,PL,PL-14,Warsaw,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:212::/64,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:213::/64,HK,,Hong Kong,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:214::/64,CN,CN-HN,Changsha,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:215::/64,CN,CN-HB,Wuhan,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4242:2279:216::/64,ZA,ZA-GP,Johannesburg,https://www.mhr.hk/dn42_geofeed.csv,fd42:4242:2279::/48
+fd42:4246:1e7f:5506::/64,US,US-CA,Rocklin,https://gshapiro.net/dn42geofeed.csv,fd42:4246:1e7f::/48
+fd6f:e34d:80de::/64,NZ,NZ-AUK,Auckland,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd6f:e34d:80de:1::/64,AU,AU-NSW,Alexandria,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd6f:e34d:80de:2::/64,CH,,,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd6f:e34d:80de:3::/64,NZ,NZ-AUK,Auckland,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd6f:e34d:80de:4::/64,GB,GB-LND,London,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd6f:e34d:80de:5::/64,NZ,NZ-AUK,Auckland,https://geofeed.rivensbane.com/dn42_geofeed.csv,fd6f:e34d:80de::/48
+fd90:6181:a491::1/128,RU,RU-PRI,Vladivostok,https://smokeofanarchy.ru/dn42_geofeed_v6.csv,fd90:6181:a491::/48
+fd90:6181:a491::2/128,DE,DE-HE,Frankfurt,https://smokeofanarchy.ru/dn42_geofeed_v6.csv,fd90:6181:a491::/48
+fd90:6181:a491::3/128,CN,CN-HN,Hengyang,https://smokeofanarchy.ru/dn42_geofeed_v6.csv,fd90:6181:a491::/48
+fd90:6181:a491::4/128,HK,,Hong Kong,https://smokeofanarchy.ru/dn42_geofeed_v6.csv,fd90:6181:a491::/48
+fd90:6181:a491::5/128,HK,,Hong Kong,https://smokeofanarchy.ru/dn42_geofeed_v6.csv,fd90:6181:a491::/48
+fd99:727:bad0:100::/56,VN,VN-SG,Ho Chi Minh City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:200::/56,US,US-UT,Salt Lake City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:300::/56,MY,MY-01,Johor Bahru,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:400::/56,US,US-IL,Chicago,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:500::/56,VN,VN-HN,Hanoi,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:600::/56,VN,VN-SG,Ho Chi Minh City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:700::/56,DE,DE-HE,Frankfurt am Main,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:800::/56,DE,DE-HE,Frankfurt am Main,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:a00::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:b00::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:c00::/56,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:d00::/56,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:e00::/56,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:f00::/56,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1000::/56,US,US-CA,Los Angeles,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1100::/56,AU,AU-NSW,Sydney,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1200::/56,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1300::/56,VN,VN-39,Dong Nai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1400::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1600::/56,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1700::/56,ID,ID-JK,Jakarta,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1800::/56,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1900::/56,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1a00::/56,US,US-CA,Los Angeles,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1b00::/56,BR,BR-SP,Sao Paulo,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1c00::/56,HK,,Hong Kong,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1d00::/56,US,US-FL,Tampa,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1e00::/56,TW,TW-TPE,Taipei,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:1f00::/56,VN,VN-DN,Da Nang,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2000::/56,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2100::/56,AO,AO-LUA,Luanda,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2200::/56,US,US-CA,San Jose,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2300::/56,GB,GB-ENG,London,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2400::/56,US,US-NY,New York City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2500::/56,RU,RU-NVS,Novosibirsk,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2600::/56,IN,IN-MH,Mumbai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2700::/56,US,US-MO,Kansas City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2800::/56,AU,AU-VIC,Melbourne,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2900::/56,RU,RU-MOW,Moscow,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2a00::/56,CA,CA-ON,Toronto,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2b00::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2c00::/56,SG,SG-01,Singapore,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2d00::/56,MX,MX-MEX,Mexico City,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2e00::/56,CL,CL-RM,Santiago,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:2f00::/56,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3000::/56,PL,PL-22,Gdańsk,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3100::/56,US,US-WA,Seattle,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3200::/56,VN,VN-22,Vinh,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3300::/56,NL,NL-FL,Lelystad,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3400::/56,SE,SE-AB,Stockholm,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3500::/56,BG,BG-22,Sofia,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3600::/56,FR,FR-IDF,Paris,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3700::/56,NG,NG-LA,Lagos,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3800::/56,TR,TR-34,Istanbul,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3900::/56,FI,FI-18,Helsinki,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3a00::/56,ZA,ZA-GP,Johannesburg,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3b00::/56,US,US-AZ,Phoenix,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3c00::/56,US,US-TX,Houston,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3d00::/56,NL,NL-NH,Amsterdam,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3e00::/56,US,US-NV,Las Vegas,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:3f00::/56,US,US-MI,Detroit,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4000::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4100::/56,IE,IE-L,Dublin,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4200::/56,ES,ES-MD,Madrid,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4300::/56,IS,IS-1,Reykjavík,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4400::/56,DE,DE-SN,Falkenstein,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4500::/56,US,US-MN,Minneapolis,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4600::/56,JP,JP-27,Osaka,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4700::/56,JP,JP-13,Tokyo,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4800::/56,US,US-HI,Honolulu,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4900::/56,LT,LT-SA,Šiauliai,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4a00::/56,JP,JP-27,Osaka,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4b00::/56,KR,KR-11,Seoul,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4c00::/56,HK,,Hong Kong,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4d00::/56,CH,CH-ZH,Zürich,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4e00::/56,MA,MA-04,Rabat,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:4f00::/56,CA,CA-QC,Beauharnois,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:5000::/56,NZ,NZ-AUK,Auckland,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fd99:727:bad0:5100::/56,GU,US-GU,Guam,https://badaimweeb.me/geofeed.csv,fd99:727:bad0::/48
+fdbc:f9dc:67ad::1/128,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad::2/128,CH,BE-246,Bern,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad::3/128,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad::5/128,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad::8/128,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad::18/128,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:1::/64,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:2::/64,CH,BE-246,Bern,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:3::/64,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:5::/64,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:8::/64,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdbc:f9dc:67ad:18::/64,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
+fdc4:c9b0:e83e:160::/64,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
+fdc4:c9b0:e83e:276::/64,DE,DE-HE,Frankfurt am Main,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
+fdc4:c9b0:e83e:344::/64,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
+fdc4:c9b0:e83e:392::/64,JP,JP-13,Tokyo,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
+fdc8:dc88:ee11:19::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:20::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:128::/64,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:136::/64,CN,CN-SH,Shanghai,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:150::/64,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:152::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:160::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:184::/64,US,US-CA,San Jose,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:186::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:188::1/128,CN,CN-SH,Shanghai,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:189::1/128,CN,CN-GD,Guangzhou,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:190::1/128,JP,JP-13,Tokyo,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:191::1/128,US,US-CA,San Jose,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:192::1/128,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:193::1/128,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:194::1/128,NL,NL-NH,Amsterdam,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:195::1/128,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:196::/64,DE,DE-HE,Frankfurt,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:199::1/128,TW,TW-TPE,Taipei,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:200::1/128,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:251::/64,HK,CN-HK,Hong Kong,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:252::/64,US,US-CA,Los Angeles,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:2929::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdc8:dc88:ee11:6666::/64,CN,CN-SN,Baoji,https://dn42.6700.cc/ip-geofeed.csv,fdc8:dc88:ee11::/48
+fdda:8ca4:1556::/56,US,US-CA,Los Angeles,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:1000::/56,SG,SG-01,Singapore,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:2000::/56,CN,CN-BJ,Beijing,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:3000::/56,DE,DE-HE,Frankfurt,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:5000::/56,US,US-NY,New York,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:6000::/56,JP,JP-13,Tokyo,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:7000::/56,NZ,NZ-AUK,Auckland,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:a000::/56,AT,AT-9,Vienna,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:b000::/56,CN,CN-HK,Hong Kong,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:c000::/56,NL,NL-NH,Amsterdam,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fdda:8ca4:1556:d000::/56,US,US-TX,Dallas,https://networkdesign.ping2.sh/public/geofeed.csv,fdda:8ca4:1556::/48
+fddf:3681:e80:225::/64,HK,,Kowloon,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:226::/64,JP,JP-13,Tokyo,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:227::/64,SG,,Singapore,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:228::/64,GB,GB-LND,London,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:229::/64,US,US-SLC,Salt Lake City,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:230::/64,US,US-WA,Washington,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:231::/64,NL,NL-AWS,Amsterdam,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:232::/64,NL,NL-AWS,Amsterdam,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:233::/64,CN,CN-GZ,Guangzhou,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:234::/64,CN,CN-CD,Chengdu,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:235::/64,CN,CN-SH,Shanghai,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:300::/56,CN,CN-SH,Shanghai,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fddf:3681:e80:f00::/56,HK,,Kowloon,https://dn42.baka.pub/geofeed.csv,fddf:3681:e80::/48
+fdea:a10b:3d3a:3::/64,US,,Los Angeles,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:4::/64,US,,Las Vegas,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:5::/64,JP,,Osaka,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:9::/64,HK,,Hong Kong,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:12::/64,US,,San Jose,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:13::/64,FR,,Paris,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:14::/64,CN,,Beijing,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:16::/64,SG,,Singapore,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:17::/64,CN,,Leshan,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:18::/64,HK,,Harmony Garden,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:20::/64,HK,,Hong Kong,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:22::/64,US,,Columbus,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdea:a10b:3d3a:23::/64,DE,,Nürnberg,https://dn42.moraxyc.com/geofeed.csv,fdea:a10b:3d3a::/48
+fdef:fa9b:62b:f100::/64,US,US-WA,Seattle,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f101::/64,US,US-MO,Kansas City,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f102::/64,FR,FR-IDF,Paris,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f103::/64,SG,SG-01,Singapore,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f104::/64,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f105::/64,GB,GB-ENG,London,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f106::/64,HK,HK-HK,Hong Kong,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f107::/64,FR,FR-HDF,Dunkerque,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f108::/64,FI,FI-18,Helsinki,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f110::/64,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f112::/64,TW,TW-TXG,Taichung,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f114::/64,RU,RU-MOW,Moscow,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f115::/64,NL,NL-NH,Amsterdam,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f118::/64,DE,DE-HE,Frankfurt,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f120::/64,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f121::/64,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f122::/64,CN,CN-ZJ,Zhejiang,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdf4:be86:71d9:1000::/56,CN,,,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1001::/64,CN,GUANGDONG,Guangzhou,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1004::/64,CN,SHANGHAI,Shanghai,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1101::/64,HK,HONG KONG,,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1102::/64,JP,JAPAN,Tokyo,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1301::/64,DE,BAVARIA,Nuremberg,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1302::/64,FR,,,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1601::/64,US,VIRGINIA,Manassas,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdf4:be86:71d9:1602::/64,US,CALIFORNIA,Los Angeles,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
+fdfa:7906:8262::/48,CN,,China Mainland,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:c000::/51,CN,,China Mainland,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:c500::/64,CN,CN-GD,Guangzhou,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:cb00::/56,DE,DE-HE,Frankfurt,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:cf00::/56,CN,CN-GD,Guangzhou,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:ffff::214/128,DE,DE-HE,Frankfurt,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
+fdfa:7906:8262:ffff::215/128,ID,ID-JK,Jakarta,http://geofeed.sherpherd.net/geofeed.csv,fdfa:7906:8262::/48
