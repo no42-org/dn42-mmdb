@@ -42,9 +42,13 @@ jobs:
       contents: write
       pull-requests: write
     env:
-      # Lifted to job level so the Tailscale step can test for it: the secrets
-      # context is not available in a step-level `if:`.
+      # Lifted to job level so the Tailscale step can test for them: the
+      # secrets context is not available in a step-level `if:`. Both are
+      # checked, because a half-configured pair would otherwise run the step
+      # with an empty credential, fail, be swallowed by continue-on-error and
+      # look exactly like a successful degraded run.
       TS_OAUTH_CLIENT_ID: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+      TS_OAUTH_CLIENT_SECRET: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
 
     steps:
       - name: Checkout repository
@@ -71,12 +75,12 @@ jobs:
       # clearnet-reachable feed, and feeds it cannot reach keep the rows the
       # committed snapshot already has.
       - name: Join the tailnet for dn42 reachability
-        if: env.TS_OAUTH_CLIENT_ID != ''
+        if: env.TS_OAUTH_CLIENT_ID != '' && env.TS_OAUTH_CLIENT_SECRET != ''
         continue-on-error: true
         uses: tailscale/github-action@780049a30b6ff5c378a9e7b389d15ece7a204888  # v4.1.3
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          oauth-secret: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
           tags: tag:ci-dn42
           args: --accept-routes --accept-dns=true
 
