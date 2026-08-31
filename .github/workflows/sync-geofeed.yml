@@ -3,12 +3,14 @@
 
 name: Sync Geofeed Snapshot
 
-# Same weekly time as the release, declared separately: this workflow reaches
-# third-party networks and the release workflow must not. Deliberately no
+# Three hours ahead of the release, and declared separately: this workflow
+# reaches third-party networks and the release workflow must not. The head
+# start lets the snapshot PR run CI and auto-merge before the release clones
+# main, so a refreshed snapshot ships the same Monday. Deliberately no
 # pull_request trigger, so no untrusted fork run can reach the tailnet.
 on:
   schedule:
-    - cron: '0 3 * * 1'
+    - cron: '0 0 * * 1'
   workflow_dispatch:
     inputs:
       registry_url:
@@ -49,6 +51,9 @@ jobs:
       # look exactly like a successful degraded run.
       TS_OAUTH_CLIENT_ID: ${{ secrets.TS_OAUTH_CLIENT_ID }}
       TS_OAUTH_CLIENT_SECRET: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
+      # Same reason, for the GitHub App below. Only the verdict is lifted, so
+      # the private key stays out of the job environment.
+      SYNC_APP_CONFIGURED: ${{ vars.SYNC_APP_ID != '' && secrets.SYNC_APP_PRIVATE_KEY != '' }}
 
     steps:
       - name: Checkout repository
@@ -178,9 +183,24 @@ jobs:
       - name: Refresh the geofeed snapshot
         run: make sync REGISTRY=registry
 
+      # A PR pushed with GITHUB_TOKEN never triggers other workflows, so the
+      # required CI check would not run and the PR would sit blocked until a
+      # human pushed to it. An installation token from a GitHub App has no
+      # such restriction. Forks without the App fall back to GITHUB_TOKEN and
+      # keep the old behaviour: the PR opens, CI needs a manual nudge.
+      - name: Mint a GitHub App token
+        id: app-token
+        if: env.SYNC_APP_CONFIGURED == 'true'
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1  # v3.2.0
+        with:
+          app-id: ${{ vars.SYNC_APP_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Open a pull request when the snapshot changed
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
           # --porcelain, not `git diff`: the snapshot may be untracked, and
@@ -205,11 +225,16 @@ jobs:
           cat > /tmp/pr-body.md <<'BODY'
           Automated refresh of `data/geofeed.csv` from geofeeds declared in the DN42 registry.
 
-          Review the diff before merging: these rows come from third-party URLs. `tools/sync_geofeed.py` rejects any row naming space outside the `inetnum` that declared the feed, and `build_geo_mmdb.py` re-applies that check at build time.
+          These rows come from third-party URLs. `tools/sync_geofeed.py` rejects any row naming space outside the `inetnum` that declared the feed, and `build_geo_mmdb.py` re-applies that check at build time.
 
-          Merging makes this snapshot part of the next weekly `dn42-city.mmdb`.
+          Auto-merge is enabled: this squash-merges as soon as CI is green and becomes part of the next weekly `dn42-city.mmdb`.
           BODY
 
-          gh pr create --head "$BRANCH" --base "${GITHUB_REF_NAME}" \
+          PR_URL=$(gh pr create --head "$BRANCH" --base "${GITHUB_REF_NAME}" \
             --title 'chore(geofeed): refresh RFC 8805 snapshot' \
-            --body-file /tmp/pr-body.md
+            --body-file /tmp/pr-body.md)
+
+          # Needs "Allow auto-merge" in the repository settings. A fork without
+          # it still gets the PR, so do not fail the run over the merge.
+          gh pr merge --auto --squash "$PR_URL" \
+            || echo "::warning::Could not enable auto-merge on $PR_URL; merge it by hand."
