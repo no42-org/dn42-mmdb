@@ -53,7 +53,7 @@ jobs:
       TS_OAUTH_CLIENT_SECRET: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
       # Same reason, for the GitHub App below. Only the verdict is lifted, so
       # the private key stays out of the job environment.
-      SYNC_APP_CONFIGURED: ${{ vars.SYNC_APP_ID != '' && secrets.SYNC_APP_PRIVATE_KEY != '' }}
+      SYNC_APP_CONFIGURED: ${{ vars.SYNC_APP_CLIENT_ID != '' && secrets.SYNC_APP_PRIVATE_KEY != '' }}
 
     steps:
       - name: Checkout repository
@@ -193,7 +193,7 @@ jobs:
         if: env.SYNC_APP_CONFIGURED == 'true'
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1  # v3.2.0
         with:
-          app-id: ${{ vars.SYNC_APP_ID }}
+          client-id: ${{ vars.SYNC_APP_CLIENT_ID }}
           private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
           permission-contents: write
           permission-pull-requests: write

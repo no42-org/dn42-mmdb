@@ -67,7 +67,7 @@ A PR opened with the default `GITHUB_TOKEN` never triggers other workflows, so t
 To get the same behaviour in a fork:
 
 1. Create a GitHub App (Settings, Developer settings, GitHub Apps) with repository permissions `Contents: Read and write` and `Pull requests: Read and write`, and install it on the fork.
-2. Store the App ID as the repository variable `SYNC_APP_ID` and a generated private key as the secret `SYNC_APP_PRIVATE_KEY`.
+2. Store the Client ID shown on the App's settings page as the repository variable `SYNC_APP_CLIENT_ID` and a generated private key as the secret `SYNC_APP_PRIVATE_KEY`.
 3. Enable "Allow auto-merge" in the repository settings.
 
 Without the variable and secret the workflow falls back to `GITHUB_TOKEN`: the PR still opens, but CI has to be started by hand.
