@@ -59,6 +59,19 @@ This is expected, not a failure.
 Rows from feeds that could not be reached are retained from the committed snapshot rather than dropped, so a fork's sync narrows coverage instead of destroying it.
 The same applies upstream whenever the peer is down.
 
+### Letting the snapshot PR merge itself
+
+The sync workflow pushes its branch and opens the pull request with a GitHub App installation token, then enables auto-merge on it.
+A PR opened with the default `GITHUB_TOKEN` never triggers other workflows, so the required CI check would not run and the PR would wait for a human to push to it.
+
+To get the same behaviour in a fork:
+
+1. Create a GitHub App (Settings, Developer settings, GitHub Apps) with repository permissions `Contents: Read and write` and `Pull requests: Read and write`, and install it on the fork.
+2. Store the App ID as the repository variable `SYNC_APP_ID` and a generated private key as the secret `SYNC_APP_PRIVATE_KEY`.
+3. Enable "Allow auto-merge" in the repository settings.
+
+Without the variable and secret the workflow falls back to `GITHUB_TOKEN`: the PR still opens, but CI has to be started by hand.
+
 ### Mirrors must be non-commercial
 
 The registry's own README states:

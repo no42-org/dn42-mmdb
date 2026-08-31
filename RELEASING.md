@@ -8,8 +8,9 @@ Releases use ISO date version tags (`vYYYY.MM.DD`).
 Releases are built automatically every Monday at 03:00 UTC via GitHub Actions.
 Releases can also be triggered on demand using the `workflow_dispatch` trigger in GitHub Actions.
 
-The same weekly run also refreshes the geofeed snapshot in a separate job.
-That job opens a pull request against `data/geofeed.csv` rather than feeding the build directly, so a refreshed snapshot ships in the *following* week's release once it has been reviewed and merged.
+A separate workflow refreshes the geofeed snapshot every Monday at 00:00 UTC, three hours ahead of the release.
+It opens a pull request against `data/geofeed.csv` rather than feeding the build directly, with auto-merge enabled, so the snapshot lands on `main` once CI is green and ships in that same Monday's release.
+The pull request is opened with a GitHub App token so that CI runs on it; see `CONTRIBUTING.md` for the setup.
 The release build itself performs no network access beyond cloning the registry.
 
 ## Release Artifacts
