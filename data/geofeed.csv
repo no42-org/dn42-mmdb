@@ -282,7 +282,6 @@ prefix,country,region,city,source,inetnum
 172.22.159.109/32,DE,DE-HE,Frankfurt,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.110/32,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.112/32,TW,TW-TXG,Taichung,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
-172.22.159.113/32,US,US-CA,Fremont,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.114/32,RU,RU-MOW,Moscow,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.115/32,NL,NL-NH,Amsterdam,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.116/32,VN,VN-SG,Ho Chi Minh City,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
@@ -291,13 +290,14 @@ prefix,country,region,city,source,inetnum
 172.22.159.119/32,PL,PL-MZ,Warsaw,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.120/32,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.121/32,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.122/32,BR,BR-SP,Campinas,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.23.10.96/32,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.97/32,JP,JP-13,Tokyo,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.98/32,CN,CN-HK,Tsuen Wan,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.99/32,US,US-TX,Houston,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.100/32,US,US-CA,San Jose,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.101/32,DE,DE-HE,Frankfurt am Main,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
-172.23.10.102/31,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
+172.23.10.102/31,CN,,,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.104/29,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.112/28,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.91.241/32,US,US-CA,Los Angeles,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
@@ -650,7 +650,6 @@ fdef:fa9b:62b:f108::/64,FI,FI-18,Helsinki,https://dn42.nedifinita.com/geofeed.cs
 fdef:fa9b:62b:f109::/64,DE,DE-HE,Frankfurt,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f110::/64,CA,CA-QC,Montreal,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f112::/64,TW,TW-TXG,Taichung,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
-fdef:fa9b:62b:f113::/64,US,US-CA,Fremont,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f114::/64,RU,RU-MOW,Moscow,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f115::/64,NL,NL-NH,Amsterdam,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f116::/64,VN,VN-SG,Ho Chi Minh City,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
@@ -659,6 +658,7 @@ fdef:fa9b:62b:f118::/64,DE,DE-HE,Frankfurt,https://dn42.nedifinita.com/geofeed.c
 fdef:fa9b:62b:f119::/64,PL,PL-MZ,Warsaw,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f120::/64,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f121::/64,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f122::/64,BR,BR-SP,Campinas,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdf4:be86:71d9:1000::/56,CN,,,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
 fdf4:be86:71d9:1001::/64,CN,GUANGDONG,Guangzhou,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
 fdf4:be86:71d9:1004::/64,CN,SHANGHAI,Shanghai,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
