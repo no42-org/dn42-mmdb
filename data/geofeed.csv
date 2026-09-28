@@ -114,7 +114,6 @@ prefix,country,region,city,source,inetnum
 172.21.108.3/32,US,US-WA,Seattle,https://geofeed.lty.dn42/geofeed.csv,172.21.108.0/27
 172.21.108.8/32,CN,CN-JS,Wuxi,https://geofeed.lty.dn42/geofeed.csv,172.21.108.0/27
 172.22.36.0/23,DE,DE-BW,Mannheim,https://geofeed.raumzeitlabor.dn42/geofeed.csv,172.22.36.0/23
-172.22.76.117/32,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,172.22.76.96/27
 172.22.76.123/32,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,172.22.76.96/27
 172.22.76.185/32,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
 172.22.76.186/32,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
@@ -292,8 +291,10 @@ prefix,country,region,city,source,inetnum
 172.22.159.120/32,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.121/32,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.122/32,BR,BR-SP,Campinas,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.123/32,IL,IL-TA,Tel Aviv,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.124/32,HK,HK-HK,Hong Kong,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.22.159.125/32,KR,KR-11,Seoul,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
+172.22.159.126/32,AU,AU-VIC,Melbourne,https://dn42.nedifinita.com/geofeed.csv,172.22.159.64/26
 172.23.10.96/32,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.97/32,JP,JP-13,Tokyo,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
 172.23.10.98/32,HK,HK,Tsuen Wan,https://storage.tes286.site/dn42/geofeed.csv,172.23.10.96/27
@@ -576,13 +577,11 @@ fdbc:f9dc:67ad::2/128,CH,BE-246,Bern,https://lantian.pub/dn42-geofeed.csv,fdbc:f
 fdbc:f9dc:67ad::3/128,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad::5/128,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad::8/128,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
-fdbc:f9dc:67ad::18/128,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad:1::/64,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad:2::/64,CH,BE-246,Bern,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad:3::/64,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad:5::/64,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdbc:f9dc:67ad:8::/64,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
-fdbc:f9dc:67ad:18::/64,US,NY,New York City,https://lantian.pub/dn42-geofeed.csv,fdbc:f9dc:67ad::/48
 fdc4:c9b0:e83e:160::/64,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
 fdc4:c9b0:e83e:276::/64,DE,DE-HE,Frankfurt am Main,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
 fdc4:c9b0:e83e:344::/64,HK,,Hong Kong,https://resource.net.chimon.org/dn42_geofeed.csv,fdc4:c9b0:e83e::/48
@@ -674,8 +673,10 @@ fdef:fa9b:62b:f119::/64,PL,PL-MZ,Warsaw,https://dn42.nedifinita.com/geofeed.csv,
 fdef:fa9b:62b:f120::/64,CN,CN-SH,Shanghai,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f121::/64,JP,JP-13,Tokyo,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f122::/64,BR,BR-SP,Campinas,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f123::/64,IL,IL-TA,Tel Aviv,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f124::/64,HK,HK-HK,Hong Kong,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdef:fa9b:62b:f125::/64,KR,KR-11,Seoul,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
+fdef:fa9b:62b:f126::/64,AU,AU-VIC,Melbourne,https://dn42.nedifinita.com/geofeed.csv,fdef:fa9b:62b::/48
 fdf4:be86:71d9:1000::/56,CN,,,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
 fdf4:be86:71d9:1001::/64,CN,GUANGDONG,Guangzhou,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
 fdf4:be86:71d9:1004::/64,CN,SHANGHAI,Shanghai,https://r2.factor2431.com/geofeed.csv,fdf4:be86:71d9::/48
