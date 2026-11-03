@@ -1,0 +1,9 @@
+# Copyright 2026 Ronny Trommer <ronny@no42.org>
+# SPDX-License-Identifier: MIT
+
+rules:
+  # Deferred: the `$/` syntax this audit asks for is rejected by actionlint
+  # 1.7.12, which CI also runs. Re-enable and switch `uses: ./` to `uses: $/`
+  # once https://github.com/rhysd/actionlint/issues/711 ships in a release.
+  self-repository:
+    disable: true
