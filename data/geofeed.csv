@@ -121,6 +121,7 @@ prefix,country,region,city,source,inetnum
 172.21.108.3/32,US,US-WA,Seattle,https://geofeed.lty.dn42/geofeed.csv,172.21.108.0/27
 172.21.108.8/32,CN,CN-JS,Wuxi,https://geofeed.lty.dn42/geofeed.csv,172.21.108.0/27
 172.22.36.0/23,DE,DE-BW,Mannheim,https://geofeed.raumzeitlabor.dn42/geofeed.csv,172.22.36.0/23
+172.22.71.19/32,CN,CN-SH,Shanghai,https://dn42.sironeko.moe/geofeed.csv,172.22.71.0/27
 172.22.76.123/32,JP,40,Tokyo,https://lantian.pub/dn42-geofeed.csv,172.22.76.96/27
 172.22.76.185/32,US,CA-037,Los Angeles,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
 172.22.76.186/32,CN,,Hong Kong,https://lantian.pub/dn42-geofeed.csv,172.22.76.184/29
@@ -330,7 +331,7 @@ prefix,country,region,city,source,inetnum
 172.23.91.244/32,NL,NL-NH,Amsterdam,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
 172.23.91.245/32,US,US-CA,Los Angeles,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
 172.23.91.246/32,US,US-NY,Buffalo,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
-172.23.91.247/32,DE,DE-HE,Frankfurt,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
+172.23.91.247/32,DE,DE-HE,Frankfurt am Main,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
 172.23.91.253/32,CN,CN-SH,Shanghai,https://dn42.sironeko.moe/geofeed.csv,172.23.91.240/28
 172.23.178.0/27,AQ,AMS,Amundsen-Scott,https://storage.tes286.site/dn42/geofeed.csv,172.23.178.0/27
 172.23.234.17/32,US,US-OH,Columbus,https://franta.dn42/geofeed.csv,172.23.234.16/28
@@ -505,7 +506,7 @@ fd78:d00:721:2::/64,HK,,Hong Kong,https://dn42.sironeko.moe/geofeed.csv,fd78:d00
 fd78:d00:721:3::/64,NL,NL-NH,Amsterdam,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
 fd78:d00:721:4::/64,US,US-CA,Los Angeles,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
 fd78:d00:721:5::/64,US,US-NY,Buffalo,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
-fd78:d00:721:6::/64,DE,DE-HE,Frankfurt,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
+fd78:d00:721:6::/64,DE,DE-HE,Frankfurt am Main,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
 fd78:d00:721:12::/64,CN,CN-SH,Shanghai,https://dn42.sironeko.moe/geofeed.csv,fd78:d00:721::/48
 fd7d:3858:42d::1/128,CN,CN-SH,Shanghai,https://feeds.lpnet0.dn42/geofeed.csv,fd7d:3858:42d::/48
 fd7d:3858:42d::2/128,JP,JP-13,Tokyo,https://feeds.lpnet0.dn42/geofeed.csv,fd7d:3858:42d::/48
